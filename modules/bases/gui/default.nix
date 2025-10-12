@@ -40,6 +40,8 @@
       grimblast
       nwg-look
       nautilus
+
+      aseprite
    ];
 }
 

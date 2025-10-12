@@ -1,5 +1,5 @@
 {
-   lib,
+   pkgs,
    home-modules,
    ...
 }: {
@@ -11,7 +11,17 @@
       "${home-modules}/gui/waybar"
    ];
 
-   programs.zsh.initContent = lib.mkOrder ''
+   home.pointerCursor = {
+      enable = true;
+      dotIcons.enable = true;
+      gtk.enable = true;
+      hyprcursor.enable = true;
+      package = pkgs.catppuccin-cursors.mochaMauve;
+      name = "catppuccin-mocha-mauve-cursors";
+      size = 24;
+   };
+
+   programs.zsh.initContent = ''
       if [[ "$(tty)" == "/dev/tty1" ]]
       then
          exec Hyprland
@@ -104,7 +114,7 @@
             "$mod, C, killactive,"
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
-            "$mod, R, exec, rofi -show drunn"
+            "$mod, R, exec, rofi -show drun"
             "$mod, S, exec, bash -c 'grimblast --freeze copysave area \"$(date +\"$HOME/Picturesscrn-%m-%d-%y-%H-%M-%S.png\")\"'"
             "$mod, D, fullscreen,"
             

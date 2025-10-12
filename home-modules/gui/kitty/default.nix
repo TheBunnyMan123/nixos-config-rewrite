@@ -1,6 +1,13 @@
 {
+   home-modules,
    ...
 }: {
+   imports = [
+      "${home-modules}/modern-coreutils"
+   ];
+
+   home.file.".config/kitty/kitty.conf.d".source = "${./kitty.conf.d}";
+
    programs.kitty = {
       enable = true;
 
@@ -15,7 +22,7 @@
       };
 
       extraConfig = ''
-         globinclude "${./kitty.conf.d}/*.conf
+         globinclude ./kitty.conf.d/*.conf
       '';
    };
 }

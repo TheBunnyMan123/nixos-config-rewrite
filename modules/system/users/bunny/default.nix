@@ -26,10 +26,11 @@
 
    home-manager.users.bunny = {
       imports = [
-         "${home-modules}/gui/hyprland"
-         "${home-modules}/gui/chromium"
-         "${home-modules}/gui/kitty"
-         "${home-modules}/gui/vencord"
+         "${home-modules}/modern-coreutils"
+         "${home-modules}/neovim"
+         "${home-modules}/tmux"
+         "${home-modules}/zsh"
+         "${home-modules}/git"
       ];
    };
 }

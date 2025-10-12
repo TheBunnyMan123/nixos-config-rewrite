@@ -1,6 +1,7 @@
 {
    pkgs,
    modules,
+   home-modules,
    ...
 }: {
    imports = [
@@ -14,6 +15,15 @@
 
       "${modules}/bases/tty"
    ];
+   
+   home-manager.users.bunny = {
+      imports = [
+         "${home-modules}/gui/hyprland"
+         "${home-modules}/gui/chromium"
+         "${home-modules}/gui/kitty"
+         "${home-modules}/gui/vencord"
+      ];
+   };
 
    environment.systemPackages = with pkgs; [
       cemu-ti

@@ -164,6 +164,8 @@
             "XCURSOR_THEME, catppuccin-mocha-mauve-cursors"
             "HYPRCURSOR_THEME, catppuccin-mocha-mauve-cursors"
 
+            "GTK_THEME, Adwaita-dark"
+
             "WLR_NO_HARDWARE_CURSORS, 1"
          ];
 

@@ -154,8 +154,8 @@
             "move 56 80, initialTitle:Picture in Picture"
 
             "float, initialClass:org.pulseaudio.pavucontrol"
-            "size 600 400, initialClass:org.pulseaudio.pavucontrol"
-            "move 15 60, initialClass:org.puuulseaudio.pavucontrol"
+            "size 700 500, initialClass:org.pulseaudio.pavucontrol"
+            "move 15 60, initialClass:org.pulseaudio.pavucontrol"
          ];
 
          env = [

@@ -9,6 +9,17 @@
       home-modules = "${self}/home-modules";
       specialArgs = {
          inherit inputs self modules home-modules;
+         
+         #pkgsPatched = import inputs.nixpkgs {
+         #   config.allowUnfree = true;
+         #   system = "x86_64-linux";
+         #   patches = [
+         #      (inputs.nixpkgs.lib.fetchpatch {
+         #         url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/450049.patch";
+         #         hash = "";
+         #      })
+         #   ];
+         #};
       };
    in {
       desktop = lib.nixosSystem {

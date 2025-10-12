@@ -5,6 +5,10 @@
    nixpkgs.config = {
       allowUnfree = true;
       android_sdk.accept_license = true;
+
+      permittedInsecurePackages = [
+         "mbedtls-2.28.10"
+      ];
    };
 
    nix = {

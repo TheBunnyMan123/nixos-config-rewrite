@@ -1,5 +1,6 @@
 {
    pkgs,
+   #pkgsPatched,
    ...
 }: {
    programs.neovim = {
@@ -12,6 +13,7 @@
          lua-language-server
          bash-language-server
          bear
+         ccls#pkgsPatched.ccls
       ];
 
       plugins = with pkgs.vimPlugins; [

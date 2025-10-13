@@ -12,6 +12,10 @@
       "${home-modules}/gui/waybar"
    ];
 
+   home.packages = with pkgs; [
+      pkgs.hyprpicker
+   ];
+
    home.pointerCursor = {
       enable = true;
       dotIcons.enable = true;
@@ -113,11 +117,13 @@
             "$mod, Q, exec, kitty tmux new -A"
             "$mod_alt, Q, exec, kitty"
             "$mod, C, killactive,"
+            "$mod_alt, C, exec, bash -c 'kill -9 \"$(hyprctl activewindow | grep -oE \"pid: [0-9]+\" | grep --color=never -oE \"[0-9]+\")\"'"
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, R, exec, rofi -show drun"
             "$mod, S, exec, bash -c 'grimblast --freeze copysave area \"$(date +\"$HOME/Picturesscrn-%m-%d-%y-%H-%M-%S.png\")\"'"
             "$mod, D, fullscreen,"
+            "$mod, P, exec, hyprpicker -a"
             
             "$mod, L, movefocus, r"
             "$mod, J, movefocus, d"

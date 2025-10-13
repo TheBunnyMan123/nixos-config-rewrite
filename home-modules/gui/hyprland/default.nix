@@ -10,13 +10,15 @@
       "${home-modules}/gui/hypridle"
       "${home-modules}/gui/hyprpaper"
       "${home-modules}/gui/rofi"
-      "${home-modules}/gui/waybar"
+      "${home-modules}/gui/quickshell"
    ];
 
    home.packages = with pkgs; [
       hyprpicker
       dconf
       glib
+      swaynotificationcenter
+      quickshell
    ];
 
    home.pointerCursor = {
@@ -98,7 +100,7 @@
          };
 
          exec-once = [
-            "waybar"
+            "quickshell -c bar"
             "swaync"
             "gsettings set org.gnome.desktop.interface gtk-theme \"Adwaita-dark\""
             "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""

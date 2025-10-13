@@ -1,19 +1,19 @@
 {
    pkgs,
-   modules,
+   sys-modules,
    home-modules,
    ...
 }: {
    imports = [
-      "${modules}/fonts/all"
-      "${modules}/other/catppuccin"
-      "${modules}/programs/tilp"
-      "${modules}/programs/hyprland"
-      "${modules}/system/audio"
-      "${modules}/system/graphics"
-      "${modules}/system/input/touchpad"
+      "${sys-modules}/fonts/all"
+      "${sys-modules}/other/catppuccin"
+      "${sys-modules}/programs/tilp"
+      "${sys-modules}/programs/hyprland"
+      "${sys-modules}/system/audio"
+      "${sys-modules}/system/graphics"
+      "${sys-modules}/system/input/touchpad"
 
-      "${modules}/bases/tty"
+      "${sys-modules}/bases/tty"
    ];
    
    home-manager.users.bunny = {

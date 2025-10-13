@@ -1,13 +1,13 @@
 {
    pkgs,
-   modules,
+   sys-modules,
    ...
 }: {
    imports = [
-      "${modules}/programs/steam"
-      "${modules}/bases/gui"
-      "${modules}/bases/tty"
-      "${modules}/virtualization"
+      "${sys-modules}/programs/steam"
+      "${sys-modules}/bases/gui"
+      "${sys-modules}/bases/tty"
+      "${sys-modules}/virtualization"
    ];
 
    environment.systemPackages = with pkgs; [

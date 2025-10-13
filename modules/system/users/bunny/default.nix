@@ -1,11 +1,11 @@
 {
    pkgs,
-   modules,
+   sys-modules,
    home-modules,
    ...
 }: {
    imports = [
-      "${modules}/programs/zsh"
+      "${sys-modules}/programs/zsh"
    ];
 
    users.users.bunny = {

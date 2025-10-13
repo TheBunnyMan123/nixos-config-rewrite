@@ -1,12 +1,12 @@
 {
-   modules,
+   sys-modules,
    ...
 }: {
    imports = [
-      "${modules}/fonts/ms"
-      "${modules}/fonts/nerd"
-      "${modules}/fonts/noto"
-      "${modules}/fonts/default"
+      "${sys-modules}/fonts/ms"
+      "${sys-modules}/fonts/nerd"
+      "${sys-modules}/fonts/noto"
+      "${sys-modules}/fonts/default"
    ];
 }
 

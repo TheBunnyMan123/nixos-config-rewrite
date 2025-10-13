@@ -3,6 +3,8 @@
 }: {
    imports = [
       ./desktop
+
+      ./livecd
    ];
 }
 

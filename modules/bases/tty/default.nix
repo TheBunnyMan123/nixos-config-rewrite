@@ -1,27 +1,27 @@
 {
-   modules,
+   sys-modules,
    ...
 }: {
    home-manager.useGlobalPkgs = true;
 
    imports = [
-      "${modules}/programs/zsh"
+      "${sys-modules}/programs/zsh"
 
-      "${modules}/system"
-      "${modules}/system/networking"
-      "${modules}/system/networking/syncthing"
-      "${modules}/system/locale"
-      "${modules}/system/users"
-      "${modules}/system/users/root"
+      "${sys-modules}/system"
+      "${sys-modules}/system/networking"
+      "${sys-modules}/system/networking/syncthing"
+      "${sys-modules}/system/locale"
+      "${sys-modules}/system/users"
+      "${sys-modules}/system/users/root"
 
-      "${modules}/services/tailscale"
-      "${modules}/services/tmpfiles"
-      "${modules}/services/avahi"
-      "${modules}/services/cups"
-      "${modules}/services/syncthing"
-      "${modules}/services/openssh"
+      "${sys-modules}/services/tailscale"
+      "${sys-modules}/services/tmpfiles"
+      "${sys-modules}/services/avahi"
+      "${sys-modules}/services/cups"
+      "${sys-modules}/services/syncthing"
+      "${sys-modules}/services/openssh"
 
-      "${modules}/other/nix"
+      "${sys-modules}/other/nix"
    ];
 }
 

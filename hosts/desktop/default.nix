@@ -5,10 +5,10 @@
 }: {
    flake.nixosConfigurations = let
       inherit (inputs.nixpkgs) lib;
-      modules = "${self}/modules";
+      sys-modules = "${self}/modules";
       home-modules = "${self}/home-modules";
       specialArgs = {
-         inherit inputs self modules home-modules;
+         inherit inputs self sys-modules home-modules;
          
          #pkgsPatched = import inputs.nixpkgs {
          #   config.allowUnfree = true;
@@ -25,13 +25,13 @@
       desktop = lib.nixosSystem {
          inherit specialArgs;
          modules = [
-            "${modules}/system/boot/grub"
-            "${modules}/system/boot/efi"
+            "${sys-modules}/system/boot/grub"
+            "${sys-modules}/system/boot/efi"
 
-            "${modules}/system/users/bunny"
-            "${modules}/home/users/bunny"
+            "${sys-modules}/system/users/bunny"
+            "${sys-modules}/home/users/bunny"
 
-            "${modules}/bases/gaming"
+            "${sys-modules}/bases/gaming"
 
             ./hardware-configuration.nix
             ./config.nix

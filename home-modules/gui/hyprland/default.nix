@@ -1,5 +1,6 @@
 {
    pkgs,
+   lib,
    home-modules,
    ...
 }: {
@@ -21,7 +22,7 @@
       size = 24;
    };
 
-   programs.zsh.initContent = ''
+   programs.zsh.initContent = lib.mkBefore ''
       if [[ "$(tty)" == "/dev/tty1" ]]
       then
          exec Hyprland

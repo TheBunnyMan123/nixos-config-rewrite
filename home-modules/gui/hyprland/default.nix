@@ -6,6 +6,7 @@
 }: {
    imports = [
       "${home-modules}/gui/gtk"
+      "${home-modules}/gui/qt"
       "${home-modules}/gui/hypridle"
       "${home-modules}/gui/hyprpaper"
       "${home-modules}/gui/rofi"
@@ -13,7 +14,9 @@
    ];
 
    home.packages = with pkgs; [
-      pkgs.hyprpicker
+      hyprpicker
+      dconf
+      glib
    ];
 
    home.pointerCursor = {
@@ -97,6 +100,8 @@
          exec-once = [
             "waybar"
             "swaync"
+            "gsettings set org.gnome.desktop.interface gtk-theme \"Adwaita-dark\""
+            "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
             
             "[workspace 1 silent] 'kitty tmux new -A'"
             "[workspace 2 silent] chromium"
@@ -172,6 +177,8 @@
             "HYPRCURSOR_THEME, catppuccin-mocha-mauve-cursors"
 
             "GTK_THEME, Adwaita-dark"
+            "QT_QPA_PLATFORMTHEME, qt6ct"
+            "QT_STYLE_OVERRIDE, kvantum"
 
             "WLR_NO_HARDWARE_CURSORS, 1"
          ];

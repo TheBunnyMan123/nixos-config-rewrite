@@ -6,6 +6,7 @@
 }: {
    imports = [
       "${home-modules}/modern-coreutils"
+      "${home-modules}/useless-commands"
    ];
 
    programs.zsh = {
@@ -56,10 +57,7 @@
          ${builtins.readFile(./funcs.sh)}
          ${builtins.readFile(./prompt.sh)}
 
-         if (( $+commands[fok-quote] ))
-         then
-            fok-quote
-         fi
+         fortuune | cowsay -f stegosaurus
       '';
 
       syntaxHighlighting = {

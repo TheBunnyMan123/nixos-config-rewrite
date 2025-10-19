@@ -1,0 +1,76 @@
+{
+   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+   "display": {
+      "separator": " ➤ "
+   },
+   "modules": [
+      {
+         "type": "title",
+         "format": "{#magenta} \uea74 System Information"
+      },
+      {
+         "type": "title",
+         "format": "{#magenta}======================"
+      },
+      "break",
+      {
+         "type": "title",
+         "format": "{#blue}\udb80\uddc5 OS"
+      },
+      {
+         "type": "os",
+         "key": "├─ \uebc6 Distro",
+         "keyColor": "blue"
+      },
+      {
+         "type": "kernel",
+         "key": "├─ \uec19 Kernel",
+         "keyColor": "blue"
+      },
+      {
+         "type": "packages",
+         "key": "└─ \ueb29 Pkgs  ",
+         "keyColor": "blue",
+         "format": "{1} Total"
+      },
+      "break",
+      {
+         "type": "title",
+         "format": "{#green}\uea85 Terminal",
+      },
+      {
+         "type": "terminal",
+         "key": "├─ \uea85 Term ",
+         "keyColor": "green"
+      },
+      {
+         "type": "shell",
+         "key": "└─ $ Shell",
+         "keyColor": "green"
+      },
+      "break",
+      {
+         "type": "title",
+         "format": "{#red}\uea85 Terminal"
+      },
+      {
+         "type": "gpu",
+         "key": "├─ \udb82\udf82 GPU",
+         "keyColor": "red"
+      },
+      {
+         "type": "cpu",
+         "key": "└─ \uf4bc CPU",
+         "keyColor": "red"
+      },
+      "break",
+      {
+         "type": "title",
+         "format": "{#40}  0{#41;30}  1{#42}  2{#43}  3{#44}  4{#45}  5{#46}  6{#47}  7"
+      },
+      {
+         "type": "title",
+         "format": "{#100}  8{#101;30}  9{#102} 10{#103} 11{#104} 12{#105} 13{#106} 14{#107} 15"
+      }
+   ]
+}

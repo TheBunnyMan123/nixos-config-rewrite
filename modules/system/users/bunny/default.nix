@@ -27,6 +27,7 @@
    home-manager.users.bunny = {
       imports = [
          "${home-modules}/modern-coreutils"
+         "${home-modules}/fastfetch"
          "${home-modules}/neovim"
          "${home-modules}/tmux"
          "${home-modules}/zsh"

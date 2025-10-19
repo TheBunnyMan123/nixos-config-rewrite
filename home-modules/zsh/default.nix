@@ -57,7 +57,7 @@
          ${builtins.readFile(./funcs.sh)}
          ${builtins.readFile(./prompt.sh)}
 
-         fortuune | cowsay -f stegosaurus
+         fortune | cowsay -f stegosaurus
       '';
 
       syntaxHighlighting = {

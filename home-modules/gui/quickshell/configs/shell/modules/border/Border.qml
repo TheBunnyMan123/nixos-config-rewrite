@@ -14,6 +14,7 @@ Variants {
 
       Item {
          PanelWindow {
+            id: verticalBar
             screen: modelData
 
             anchors {
@@ -24,6 +25,11 @@ Variants {
 
             implicitWidth: 37
             color: Colors.base
+
+            SystemTray {
+               Layout.alignment: Qt.AlignHCenter
+               parentWindow: verticalBar
+            }
 
             ColumnLayout {
                anchors.horizontalCenter: parent.horizontalCenter

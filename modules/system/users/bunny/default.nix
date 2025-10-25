@@ -6,6 +6,7 @@
 }: {
    imports = [
       "${sys-modules}/programs/zsh"
+      "${sys-modules}/programs/obsidian"
    ];
 
    users.users.bunny = {

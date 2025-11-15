@@ -11,7 +11,7 @@
          inherit inputs self sys-modules home-modules;
       };
    in {
-      desktop = lib.nixosSystem {
+      laptop = lib.nixosSystem {
          inherit specialArgs;
          modules = [
             "${sys-modules}/system/boot/grub"

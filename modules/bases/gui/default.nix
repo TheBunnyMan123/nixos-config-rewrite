@@ -43,6 +43,8 @@
       nautilus
 
       aseprite
+      libreoffice
+      keepassxc
    ];
 }
 

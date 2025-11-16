@@ -9,6 +9,8 @@
       "${sys-modules}/programs/obsidian"
    ];
 
+   services.upower.enable = true;
+
    users.users.bunny = {
       isNormalUser = true;
       home = "/home/bunny";

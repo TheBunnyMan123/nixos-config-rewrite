@@ -55,12 +55,18 @@ Variants {
             }
 
             RowLayout {
-               spacing: 10
-               anchors.fill: parent
+               spacing: 30
+               anchors.top: parent.top
+               anchors.bottom: parent.bottom
+               anchors.left: parent.left
 
-               Item {}
+               Item {width: 10}
 
                Clock {
+                  Layout.alignment: Qt.AlignVCenter
+               }
+               
+               Battery {
                   Layout.alignment: Qt.AlignVCenter
                }
             }

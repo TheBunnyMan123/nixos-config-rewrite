@@ -7,6 +7,8 @@
    imports = [
       "${sys-modules}/programs/zsh"
 
+      "${sys-modules}/virtualization/docker"
+
       "${sys-modules}/system"
       "${sys-modules}/system/networking"
       "${sys-modules}/system/networking/syncthing"

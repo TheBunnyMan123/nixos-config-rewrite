@@ -83,12 +83,13 @@
 
          vim.opt.nu = true
 
-         vim.opt.tabstop = 3
-         vim.opt.softtabstop = 3
-         vim.opt.shiftwidth = 3
-         vim.opt.expandtab = true
+         vim.opt.tabstop = 8
+         vim.opt.softtabstop = 8
+         vim.opt.shiftwidth = 8
+         vim.opt.expandtab = false
 
          vim.opt.smartindent = true
+         vim.opt.autoindent = true
 
          vim.opt.wrap = false
 

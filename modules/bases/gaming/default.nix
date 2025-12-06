@@ -14,5 +14,32 @@
       lutris
       prismlauncher
    ];
+   
+   networking.firewall = {
+      allowedTCPPorts = [
+         25565
+      ];
+      allowedUDPPorts = [
+         4380
+         27036
+      ];
+
+      allowedTCPPortRanges = [
+         {
+            from = 27015;
+            to = 27030;
+         }
+         {
+            from = 27036;
+            to = 27037;
+         }
+      ];
+      allowedUDPPortRanges = [
+         {
+            from = 27000;
+            to = 27031;
+         }
+      ];
+   };
 }
 

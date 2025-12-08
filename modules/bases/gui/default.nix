@@ -43,6 +43,8 @@
       nautilus
 
       aseprite
+      inkscape
+      blender
       libreoffice
       keepassxc
    ];

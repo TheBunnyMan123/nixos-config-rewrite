@@ -15,6 +15,7 @@
       "${sys-modules}/system/locale"
       "${sys-modules}/system/users"
       "${sys-modules}/system/users/root"
+      "${sys-modules}/system/input/keyboard"
 
       "${sys-modules}/services/tailscale"
       "${sys-modules}/services/tmpfiles"

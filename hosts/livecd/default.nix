@@ -31,6 +31,7 @@
             "${sys-modules}/system/audio"
             "${sys-modules}/system/graphics"
             "${sys-modules}/system/input/touchpad"
+            "${sys-modules}/system/input/keyboard"
             "${sys-modules}/other/nix"
 
             ./config.nix

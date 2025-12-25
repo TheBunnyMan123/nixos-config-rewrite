@@ -27,6 +27,7 @@
          modules = [
             "${sys-modules}/system/boot/grub"
             "${sys-modules}/system/boot/efi"
+            "${sys-modules}/system/input/keyboard/razer"
 
             "${sys-modules}/system/users/bunny"
             "${sys-modules}/home/users/bunny"

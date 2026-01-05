@@ -128,7 +128,7 @@
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, R, exec, rofi -show drun"
-            "$mod, S, exec, bash -c 'grimblast --freeze copysave area \"$(date +\"$HOME/Picturesscrn-%m-%d-%y-%H-%M-%S.png\")\"'"
+            "$mod, S, exec, bash -c 'grimblast --freeze copysave area \"$(date +\"$HOME/Pictures/screenshots/%y-%m-%d-%H-%M-%S.png\")\"'"
             "$mod, D, fullscreen,"
             "$mod, P, exec, hyprpicker -a"
             

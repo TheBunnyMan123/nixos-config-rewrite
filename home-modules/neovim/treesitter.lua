@@ -1,6 +1,6 @@
-local configs = require("nvim-treesitter.configs")
+local sitter = require("nvim-treesitter")
 
-configs.setup({
+sitter.setup({
    highlight = { enable = true },
    indent = { enable = false },
 })

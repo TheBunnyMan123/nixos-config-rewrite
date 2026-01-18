@@ -58,7 +58,8 @@ vim.lsp.config("ccls", {
       threads = 0;
     };
     clang = {
-      excludeArgs = { "-frounding-math"} ;
+      excludeArgs = {"-frounding-math"};
+      extraArgs = {"-Wall", "-Wextra"};
     };
   }
 })

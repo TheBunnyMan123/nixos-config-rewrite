@@ -7,7 +7,7 @@ cmp.setup({
       ['<CR>'] = cmp.mapping.confirm({select = false}),
 
       -- Ctrl+Space to trigger completion menu
-      ['<C-Space'] = cmp.mapping.complete(),
+      ['<C-Space>'] = cmp.mapping.complete(),
 
       -- Navigate between snippet placeholder
       ['<C-f>'] = cmp_action.luasnip_jump_forward(),

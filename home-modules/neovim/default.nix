@@ -1,22 +1,21 @@
 {
-   pkgs,
-   #pkgsPatched,
+   pkgsOct2025,
    ...
 }: {
    programs.neovim = {
       enable = true;
       defaultEditor = true;
 
-      extraPackages = with pkgs; [
+      extraPackages = with pkgsOct2025; [
          vscode-langservers-extracted
          nixd
          lua-language-server
          bash-language-server
          bear
-         ccls#pkgsPatched.ccls
+         ccls#pkgsOct2025Patched.ccls
       ];
 
-      plugins = with pkgs.vimPlugins; [
+      plugins = with pkgsOct2025.vimPlugins; [
          {
             plugin = which-key-nvim;
             config = builtins.readFile ./which-key.lua;

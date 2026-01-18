@@ -17,7 +17,7 @@
    ];
 
    environment.systemPackages = with pkgs; [
-      (jdk23.override {enableJavaFX = true;})
+      (jdk21.override {enableJavaFX = true;})
 
       coreutils-full
       git

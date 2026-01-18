@@ -4,9 +4,9 @@
 }: {
    fonts = {
       packages = with pkgs; [
-         vistafonts
-         vistafonts-chs
-         vistafonts-cht
+         vista-fonts
+         vista-fonts-chs
+         vista-fonts-cht
 
          corefonts
       ];

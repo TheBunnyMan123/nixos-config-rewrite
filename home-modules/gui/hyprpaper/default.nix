@@ -5,8 +5,11 @@
       enable = true;
 
       settings = {
-         preload = [ "${./wallpaper.png}" ];
-         wallpaper = [ ", ${./wallpaper.png}" ];
+         wallpaper = [{
+	    monitor = "";
+	    path = "${./wallpaper.png}";
+	    fit_mode = "cover";
+	 }];
       };
    };
 }

@@ -9,6 +9,7 @@
       home-modules = "${self}/home-modules";
       specialArgs = {
          inherit inputs self sys-modules home-modules;
+	 pkgsOct2025 = inputs.nixpkgs-oct-11-2025.legacyPackages."x86_64-linux";
          
          #pkgsPatched = import inputs.nixpkgs {
          #   config.allowUnfree = true;

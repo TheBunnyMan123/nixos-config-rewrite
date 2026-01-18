@@ -1,5 +1,6 @@
 {
    pkgs,
+   pkgsOct2025,
    ...
 }: {
    programs.tmux = {

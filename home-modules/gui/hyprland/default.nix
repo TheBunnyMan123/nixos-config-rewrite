@@ -34,7 +34,7 @@
    programs.zsh.initContent = lib.mkBefore ''
       if [[ "$(tty)" == "/dev/tty1" ]]
       then
-         exec Hyprland
+         exec start-hyprland
       fi
    '';
 
@@ -102,13 +102,9 @@
          exec-once = [
             "quickshell -c shell"
             "swaync"
+	    "steam -nochatui -nofriendsui -silent"
             "gsettings set org.gnome.desktop.interface gtk-theme \"Adwaita-dark\""
             "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
-            
-            "[workspace 1 silent] 'kitty tmux new -A'"
-            "[workspace 2 silent] chromium"
-            "[workspace 2 silent] keepassxc"
-            "[workspace 3 silent] vesktop"
          ];
 
          bind = [
@@ -158,19 +154,31 @@
             "$mod, mouse:273, resizewindow"
          ];
 
-         windowrulev2 = [
-            "suppressevent maximize, class:.*"
-            "tile, initialClass:([Mm]inecraft.*)"
-            "workspace 3, class:(vesktop)"
-            
-            "float, initialTitle:Picture in Picture"
-            "size 544 306, initialTitle:Picture in Picture"
-            "move 56 80, initialTitle:Picture in Picture"
+	 workspace = [
+	    "1, on-created-empty:kitty tmux new -A"
+	    "2, on-created-empty:chromium & keepassxc"
+	    "3, on-created-empty:vesktop"
+	    "4, on-created-empty:steam"
+	 ];
 
-            "float, initialClass:org.pulseaudio.pavucontrol"
-            "size 700 500, initialClass:org.pulseaudio.pavucontrol"
-            "move 15 60, initialClass:org.pulseaudio.pavucontrol"
-         ];
+	 windowrule = [
+	    "match:initial_class [Mm]inecraft.*, tile true"
+
+            {
+	       name = "picture-in-picture";
+	       "match:initial_title" = "Picture in picture";
+
+	       float = true;
+	       pin = true;
+	       center = false;
+	       keep_aspect_ratio = true;
+	       size = "416 234";
+	       move = "86 50";
+	       idle_inhibit = "always";
+	       animation = "popin";
+	       content = "video";
+	    }
+	 ];
 
          env = [
             "XCURSOR_SIZE, 24"

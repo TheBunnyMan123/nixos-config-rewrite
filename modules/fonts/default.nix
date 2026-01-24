@@ -16,7 +16,7 @@
 		defaultFonts = {
 			sansSerif = [ "Arial" "Symbols Nerd Font" "Noto Color Emoji" ];
 			serif = [ "Liberation Serif" "Symbols Nerd Font" "Noto Color Emoji" ];
-			monospace = [ "MesloLGS Nerd Font" "Noto Emoji" ];
+			monospace = [ "MesloLGS Nerd Font" "Noto Color Emoji" ];
 		};
 	};
 }

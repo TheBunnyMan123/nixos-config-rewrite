@@ -8,6 +8,14 @@
             nixpkgs.follows = "nixpkgs";
          };
       };
+      
+      nixos-utils = {
+         url = "github:TheBunnyMan123/NixosUtils";
+         inputs = {
+            nixpkgs.follows = "nixpkgs";
+            home-manager.follows = "home-manager";
+	 };
+      };
 
       home-manager = {
          url = "github:nix-community/home-manager";

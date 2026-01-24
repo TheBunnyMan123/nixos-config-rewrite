@@ -102,9 +102,8 @@
          exec-once = [
             "quickshell -c shell"
             "swaync"
-	    "steam -nochatui -nofriendsui -silent"
-            "gsettings set org.gnome.desktop.interface gtk-theme \"Adwaita-dark\""
-            "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
+	    "dconf write \"/org/gnome/desktop/interface/color-scheme\" '\"prefer-dark\"'"
+	    "dconf write \"/org/gnome/desktop/interface/gtk-theme\" '\"Adwaita-dark\"'"
          ];
 
          bind = [
@@ -116,7 +115,7 @@
             ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
             "$mod, N, layoutmsg, swapwithmaster master"
-            "$mod, B, exec, chromium"
+            "$mod, B, exec, firefox-devedition"
             "$mod, Q, exec, kitty tmux new -A"
             "$mod_alt, Q, exec, kitty"
             "$mod, C, killactive,"
@@ -156,9 +155,8 @@
 
 	 workspace = [
 	    "1, on-created-empty:kitty tmux new -A"
-	    "2, on-created-empty:chromium & keepassxc"
+	    "2, on-created-empty:firefox-devedition & keepassxc"
 	    "3, on-created-empty:vesktop"
-	    "4, on-created-empty:steam"
 	 ];
 
 	 windowrule = [
@@ -188,7 +186,6 @@
 
             "GTK_THEME, Adwaita-dark"
             "QT_QPA_PLATFORMTHEME, qt6ct"
-            "QT_STYLE_OVERRIDE, kvantum"
 
             "WLR_NO_HARDWARE_CURSORS, 1"
          ];

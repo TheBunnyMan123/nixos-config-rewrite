@@ -5,7 +5,7 @@
    ...
 }: {
    imports = [
-      "${sys-modules}/fonts/all"
+      "${sys-modules}/fonts/"
       "${sys-modules}/other/catppuccin"
       "${sys-modules}/programs/tilp"
       "${sys-modules}/programs/hyprland"
@@ -20,6 +20,7 @@
       imports = [
          "${home-modules}/gui/hyprland"
          "${home-modules}/gui/chromium"
+         "${home-modules}/gui/firefox"
          "${home-modules}/gui/kitty"
          "${home-modules}/gui/vencord"
       ];

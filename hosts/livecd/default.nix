@@ -25,7 +25,7 @@
             "${sys-modules}/home/users/bunny"
             "${sys-modules}/services/avahi"
             "${sys-modules}/services/openssh"
-            "${sys-modules}/fonts/all"
+            "${sys-modules}/fonts"
             "${sys-modules}/other/catppuccin"
             "${sys-modules}/programs/hyprland"
             "${sys-modules}/system/audio"

@@ -11,6 +11,7 @@
    home-manager.users.bunny.home.stateVersion = config.system.stateVersion;
    home-manager.users.bunny = {
       imports = [
+         "${home-modules}/gui/stylix"
          "${home-modules}/gui/hyprland"
          "${home-modules}/gui/chromium"
          "${home-modules}/gui/kitty"

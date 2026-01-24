@@ -1,40 +1,45 @@
 {
-   description = "Description for the project";
+	description = "Description for the project";
 
-   inputs = {
-      catppuccin = {
-         url = "github:catppuccin/nix";
-         inputs = {
-            nixpkgs.follows = "nixpkgs";
-         };
-      };
-      
-      nixos-utils = {
-         url = "github:TheBunnyMan123/NixosUtils";
-         inputs = {
-            nixpkgs.follows = "nixpkgs";
-            home-manager.follows = "home-manager";
-	 };
-      };
+	inputs = {
+		catppuccin = {
+			url = "github:catppuccin/nix";
+			inputs = {
+				nixpkgs.follows = "nixpkgs";
+			};
+		};
 
-      home-manager = {
-         url = "github:nix-community/home-manager";
-         inputs = {
-            nixpkgs.follows = "nixpkgs";
-         };
-      };
-      
-      flake-parts.url = "github:hercules-ci/flake-parts";
-      hardware.url = "github:nixos/nixos-hardware";
-      nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-      nixpkgs-oct-11-2025.url = "github:NixOS/nixpkgs/362791944032cb532aabbeed7887a441496d5e6e";
-   };
+		nixos-utils = {
+			url = "github:TheBunnyMan123/NixosUtils";
+			inputs = {
+				nixpkgs.follows = "nixpkgs";
+				home-manager.follows = "home-manager";
+			};
+		};
 
-   outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-         ./hosts
-      ];
+		home-manager = {
+			url = "github:nix-community/home-manager";
+			inputs = {
+				nixpkgs.follows = "nixpkgs";
+			};
+		};
 
-      systems = [ "x86_64-linux" ];
-   };
+		stylix = {
+			url = "github:nix-community/stylix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		flake-parts.url = "github:hercules-ci/flake-parts";
+		hardware.url = "github:nixos/nixos-hardware";
+		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+		nixpkgs-oct-11-2025.url = "github:NixOS/nixpkgs/362791944032cb532aabbeed7887a441496d5e6e";
+	};
+
+	outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
+		imports = [
+			./hosts
+		];
+
+		systems = [ "x86_64-linux" ];
+	};
 }

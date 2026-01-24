@@ -5,7 +5,8 @@
    ...
 }: {
    imports = [
-      "${sys-modules}/fonts/"
+      "${sys-modules}/qt"
+      "${sys-modules}/fonts"
       "${sys-modules}/other/catppuccin"
       "${sys-modules}/programs/tilp"
       "${sys-modules}/programs/hyprland"

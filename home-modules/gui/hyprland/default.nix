@@ -115,7 +115,7 @@
             ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
             "$mod, N, layoutmsg, swapwithmaster master"
-            "$mod, B, exec, firefox-devedition"
+            "$mod, B, exec, firefox-esr"
             "$mod, Q, exec, kitty tmux new -A"
             "$mod_alt, Q, exec, kitty"
             "$mod, C, killactive,"
@@ -155,7 +155,7 @@
 
 	 workspace = [
 	    "1, on-created-empty:kitty tmux new -A"
-	    "2, on-created-empty:firefox-devedition & keepassxc"
+	    "2, on-created-empty:firefox-esr & keepassxc"
 	    "3, on-created-empty:vesktop"
 	 ];
 

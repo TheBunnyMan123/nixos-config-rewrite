@@ -13,6 +13,7 @@
       "${sys-modules}/system/audio"
       "${sys-modules}/system/graphics"
       "${sys-modules}/system/input/touchpad"
+      "${sys-modules}/nix"
 
       "${sys-modules}/bases/tty"
    ];

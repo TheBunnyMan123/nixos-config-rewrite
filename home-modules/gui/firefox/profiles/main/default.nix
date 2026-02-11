@@ -36,7 +36,7 @@
 							params = [
 								{
 									name = "q";
-									value = "{searchTerms} -ai";
+									value = "{searchTerms} before:2023 -ai";
 								}
 							];
 						}
@@ -45,6 +45,25 @@
 					icon = "https://www.google.com/favicon.ico";
 					updateInterval = 7 * 24 * 60 * 60 * 1000;
 					definedAliases = [ "@gs" ];
+				};
+
+				raw-search = {
+					name = "Raw Google Search";
+					urls = [
+						{
+							template = "https://www.google.com/search";
+							params = [
+								{
+									name = "q";
+									value = "{searchTerms}";
+								}
+							];
+						}
+					];
+
+					icon = "https://www.google.com/favicon.ico";
+					updateInterval = 7 * 24 * 60 * 60 * 1000;
+					definedAliases = [ "@rs" ];
 				};
 
 				google-images = {

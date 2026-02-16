@@ -6,6 +6,7 @@
 		aseprite
 		inkscape
 		blender
+		libreoffice-qt6
 
 		kdePackages.kolourpaint
 	];

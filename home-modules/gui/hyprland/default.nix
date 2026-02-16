@@ -1,198 +1,223 @@
 {
-   pkgs,
-   lib,
-   home-modules,
-   ...
+	pkgs,
+	lib,
+	home-modules,
+	...
 }: {
-   imports = [
-      "${home-modules}/gui/gtk"
-      "${home-modules}/gui/qt"
-      "${home-modules}/gui/hypridle"
-      "${home-modules}/gui/hyprpaper"
-      "${home-modules}/gui/rofi"
-      "${home-modules}/gui/quickshell"
-   ];
+	imports = [
+		"${home-modules}/gui/gtk"
+		"${home-modules}/gui/qt"
+		"${home-modules}/gui/hypridle"
+		"${home-modules}/gui/hyprpaper"
+		"${home-modules}/gui/rofi"
+		"${home-modules}/gui/quickshell"
+	];
 
-   home.packages = with pkgs; [
-      hyprpicker
-      dconf
-      glib
-      swaynotificationcenter
-      quickshell
-   ];
+	xdg.portal = {
+		extraPortals = [
+			pkgs.xdg-desktop-portal-termfilechooser
+			pkgs.xdg-desktop-portal-gtk
+			pkgs.xdg-desktop-portal-hyprland
+		];
 
-   home.pointerCursor = {
-      enable = true;
-      dotIcons.enable = true;
-      gtk.enable = true;
-      hyprcursor.enable = true;
-      package = pkgs.catppuccin-cursors.mochaMauve;
-      name = "catppuccin-mocha-mauve-cursors";
-      size = 24;
-   };
+		config.hyprland = {
+			default = "hyprland;termfilechooser;gtk";
+			"org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+		};
+	};
 
-   programs.zsh.initContent = lib.mkBefore ''
-      if [[ "$(tty)" == "/dev/tty1" ]]
-      then
-         exec start-hyprland
-      fi
-   '';
+	home.packages = with pkgs; [
+		hyprpicker
+		dconf
+		glib
+		swaynotificationcenter
+		quickshell
+	];
 
-   wayland.windowManager.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-      systemd.variables = [ "--all" ];
+	home.pointerCursor = {
+		enable = true;
+		dotIcons.enable = true;
+		gtk.enable = true;
+		hyprcursor.enable = true;
+		package = pkgs.catppuccin-cursors.mochaMauve;
+		name = "catppuccin-mocha-mauve-cursors";
+		size = 24;
+	};
 
-      settings = {
-         "$mod" = "SUPER";
-         "$mod_alt" = "SUPER_SHIFT";
+	programs.zsh.initContent = lib.mkBefore ''
+		if [[ "$(tty)" == "/dev/tty1" ]]
+		then
+			exec start-hyprland
+		fi
+	'';
 
-         general = {
-            gaps_in = 5;
-            gaps_out = 10;
-            border_size = 2;
+	wayland.windowManager.hyprland = {
+		enable = true;
+		xwayland.enable = true;
+		systemd.variables = [ "--all" ];
 
-            "col.inactive_border" = "rgb(1a1a1a)";
-            "col.active_border" = "rgb(b3e0f2)";
-            layout = "master";
+		settings = {
+			"$mod" = "SUPER";
+			"$mod_alt" = "SUPER_SHIFT";
 
-            resize_on_border = false;
-            allow_tearing = false;
-         };
+			general = {
+				gaps_in = 5;
+				gaps_out = 10;
+				border_size = 2;
 
-         decoration = {
-            rounding = 10;
-            active_opacity = 1.0;
-            inactive_opacity = 0.95;
+				"col.inactive_border" = "rgb(1a1a1a)";
+				"col.active_border" = "rgb(b3e0f2)";
+				layout = "master";
 
-            blur = {
-               enabled = true;
-               size = 3;
-               passes = 1;
-               vibrancy = 0.1696;
-            };
-         };
+				resize_on_border = false;
+				allow_tearing = false;
+			};
 
-         input = {
-            kb_layout = "us";
-            follow_mouse = 1;
-            sensitivity = 0;
+			decoration = {
+				rounding = 10;
+				active_opacity = 1.0;
+				inactive_opacity = 0.95;
 
-            touchpad = {
-               natural_scroll = false;
-               disable_while_typing = false;
-            };
-         };
+				blur = {
+					enabled = true;
+					size = 3;
+					passes = 1;
+					vibrancy = 0.1696;
+				};
+			};
 
-         animations = {
-            enabled = true;
-            bezier = "bez, 0.05, 0.9, 0.1, 1.05";
+			input = {
+				kb_layout = "us";
+				follow_mouse = 1;
+				sensitivity = 0;
 
-            animation = [
-               "windows, 1, 5, bez"
-               "windowsOut, 1, 5, bez"
-               "workspaces, 1, 5, bez"
+				touchpad = {
+					natural_scroll = false;
+					disable_while_typing = false;
+				};
+			};
 
-               "border, 0, 0, default"
-               "borderangle, 0, 0, default"
-               "fade, 0, 0, default"
-            ];
-         };
+			animations = {
+				enabled = true;
+				bezier = "bez, 0.05, 0.9, 0.1, 1.05";
 
-         exec-once = [
-            "quickshell -c shell"
-            "swaync"
-	    "dconf write \"/org/gnome/desktop/interface/color-scheme\" '\"prefer-dark\"'"
-	    "dconf write \"/org/gnome/desktop/interface/gtk-theme\" '\"Adwaita-dark\"'"
-         ];
+				animation = [
+					"windows, 1, 5, bez"
+					"windowsOut, 1, 5, bez"
+					"workspaces, 1, 5, bez"
 
-         bind = [
-            ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ --limit 1 5%+"
-            ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-            ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            
-            ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-            ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+					"border, 0, 0, default"
+					"borderangle, 0, 0, default"
+					"fade, 0, 0, default"
+				];
+			};
 
-            "$mod, N, layoutmsg, swapwithmaster master"
-            "$mod, B, exec, firefox-esr"
-            "$mod, Q, exec, kitty tmux new -A"
-            "$mod_alt, Q, exec, kitty"
-            "$mod, C, killactive,"
-            "$mod_alt, C, exec, bash -c 'kill -9 \"$(hyprctl activewindow | grep -oE \"pid: [0-9]+\" | grep --color=never -oE \"[0-9]+\")\"'"
-            "$mod, M, exit,"
-            "$mod, V, togglefloating,"
-            "$mod, R, exec, rofi -show drun"
-            "$mod, S, exec, bash -c 'grimblast --freeze copysave area \"$(date +\"$HOME/Pictures/screenshots/%y-%m-%d-%H-%M-%S.png\")\"'"
-            "$mod, D, fullscreen,"
-            "$mod, P, exec, hyprpicker -a"
-            
-            "$mod, L, movefocus, r"
-            "$mod, J, movefocus, d"
-            "$mod, K, movefocus, u"
-            "$mod, H, movefocus, l"
-            "$mod, right, movefocus, r"
-            "$mod, down, movefocus, d"
-            "$mod, up, movefocus, u"
-            "$mod, left, movefocus, l"
-         ] ++ (
-            builtins.concatLists(builtins.genList(
-               x: let
-                  wspace = let
-                     c = (x + 1) / 10;
-                  in builtins.toString(x + 1 - (c * 10));
-               in [
-                  "$mod, ${wspace}, workspace, ${toString(x + 1)}"
-                  "$mod_alt, ${wspace}, movetoworkspace, ${toString(x + 1)}"
-               ]
-            ) 10)
-         );
+			exec-once = [
+				"quickshell -c shell"
+				"swaync"
+				"dconf write \"/org/gnome/desktop/interface/color-scheme\" '\"prefer-dark\"'"
+				"dconf write \"/org/gnome/desktop/interface/gtk-theme\" '\"Adwaita-dark\"'"
+			];
 
-         bindm = [
-            "$mod, mouse:272, movewindow"
-            "$mod, mouse:273, resizewindow"
-         ];
+			bind = [
+				", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ --limit 1 5%+"
+				", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+				", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-	 workspace = [
-	    "1, on-created-empty:kitty tmux new -A"
-	    "2, on-created-empty:firefox-esr & keepassxc"
-	    "3, on-created-empty:vesktop"
-	 ];
+				", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+				", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
-	 windowrule = [
-	    "match:initial_class [Mm]inecraft.*, tile true"
+				"$mod, N, layoutmsg, swapwithmaster master"
+				"$mod, B, exec, firefox-esr"
+				"$mod, Q, exec, kitty tmux new -A"
+				"$mod_alt, Q, exec, kitty"
+				"$mod, C, killactive,"
+				"$mod_alt, C, exec, bash -c 'kill -9 \"$(hyprctl activewindow | grep -oE \"pid: [0-9]+\" | grep --color=never -oE \"[0-9]+\")\"'"
+				"$mod, M, exit,"
+				"$mod, V, togglefloating,"
+				"$mod, R, exec, rofi -show drun"
+				"$mod, S, exec, bash -c 'grimblast --freeze copysave area \"$(date +\"$HOME/Pictures/screenshots/%y-%m-%d-%H-%M-%S.png\")\"'"
+				"$mod, D, fullscreen,"
+				"$mod, P, exec, hyprpicker -a"
 
-            {
-	       name = "picture-in-picture";
-	       "match:initial_title" = "Picture in picture";
+				"$mod, L, movefocus, r"
+				"$mod, J, movefocus, d"
+				"$mod, K, movefocus, u"
+				"$mod, H, movefocus, l"
+				"$mod, right, movefocus, r"
+				"$mod, down, movefocus, d"
+				"$mod, up, movefocus, u"
+				"$mod, left, movefocus, l"
+			] ++ (
+				builtins.concatLists(builtins.genList(
+					x: let
+						wspace = let
+							c = (x + 1) / 10;
+						in toString(x + 1 - (c * 10));
+					in [
+						"$mod, ${wspace}, workspace, ${toString(x + 1)}"
+						"$mod_alt, ${wspace}, movetoworkspace, ${toString(x + 1)}"
+					]
+				) 10)
+			);
 
-	       float = true;
-	       pin = true;
-	       center = false;
-	       keep_aspect_ratio = true;
-	       size = "416 234";
-	       move = "86 50";
-	       idle_inhibit = "always";
-	       animation = "popin";
-	       content = "video";
-	    }
-	 ];
+			bindm = [
+				"$mod, mouse:272, movewindow"
+				"$mod, mouse:273, resizewindow"
+			];
 
-         env = [
-            "XCURSOR_SIZE, 24"
-            "HYPRCURSOR_SIZE, 24"
-            "XCURSOR_THEME, catppuccin-mocha-mauve-cursors"
-            "HYPRCURSOR_THEME, catppuccin-mocha-mauve-cursors"
+			workspace = [
+				"1, on-created-empty:kitty tmux new -A"
+				"2, on-created-empty:firefox-esr & keepassxc"
+				"3, on-created-empty:vesktop"
+			];
 
-            "GTK_THEME, Adwaita-dark"
+			windowrule = [
+				"match:initial_class [Mm]inecraft.*, tile true"
 
-            "WLR_NO_HARDWARE_CURSORS, 1"
-         ];
+				{
+					name = "termfilechooser";
+					"match:initial_title" = "termfilechooser";
 
-         cursor = {
-            no_hardware_cursors = true;
-         };
-      };
-   };
+					float = true;
+					center = true;
+					size = "955 760";
+					animation = "popin";
+				}
+
+				{
+					name = "picture-in-picture";
+					"match:initial_title" = "Picture-in-Picture";
+
+					float = true;
+					pin = true;
+					center = false;
+					keep_aspect_ratio = true;
+					size = "416 234";
+					move = "86 50";
+					idle_inhibit = "always";
+					animation = "popin";
+					content = "video";
+				}
+			];
+
+			env = [
+				"XCURSOR_SIZE, 24"
+				"HYPRCURSOR_SIZE, 24"
+				"XCURSOR_THEME, catppuccin-mocha-mauve-cursors"
+				"HYPRCURSOR_THEME, catppuccin-mocha-mauve-cursors"
+
+				"QT_QPA_PLATFORMTHEME, xdgdesktopportal"
+				"GTK_THEME, Adwaita-dark"
+				"GTK_USE_PORTAL, 1"
+
+				"WLR_NO_HARDWARE_CURSORS, 1"
+			];
+
+			cursor = {
+				no_hardware_cursors = true;
+			};
+		};
+	};
 }
 

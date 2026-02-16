@@ -45,7 +45,6 @@
 		nwg-look
 		nautilus
 
-		libreoffice
 		keepassxc
 	];
 }

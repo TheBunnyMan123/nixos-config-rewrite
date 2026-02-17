@@ -207,7 +207,6 @@
 				"XCURSOR_THEME, catppuccin-mocha-mauve-cursors"
 				"HYPRCURSOR_THEME, catppuccin-mocha-mauve-cursors"
 
-				"QT_QPA_PLATFORMTHEME, xdgdesktopportal"
 				"GTK_THEME, Adwaita-dark"
 				"GTK_USE_PORTAL, 1"
 

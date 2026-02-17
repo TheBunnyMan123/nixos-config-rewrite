@@ -43,7 +43,7 @@
 		hyprpaper
 		grimblast
 		nwg-look
-		nautilus
+		kdePackages.dolphin
 
 		keepassxc
 	];

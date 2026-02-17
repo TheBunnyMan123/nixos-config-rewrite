@@ -24,7 +24,9 @@
          enableIPv6 = true;
       };
 
-      search = [ "kamorri-ghoul.ts.net" ];
+      nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
+
+      search = [ "kamori-ghoul.ts.net" ];
 
       firewall = {
          enable = true;

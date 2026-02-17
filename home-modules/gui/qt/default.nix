@@ -46,7 +46,7 @@
 
 			[UiSettings]
 			ColorScheme=Kvantum
-					'';
+		'';
 
 
 		"Kvantum/kvantum.kvconfig".text = ''

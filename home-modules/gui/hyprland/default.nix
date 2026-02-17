@@ -113,6 +113,7 @@
 			};
 
 			exec-once = [
+				"keepassxc --minimized"
 				"quickshell -c shell"
 				"swaync"
 				"dconf write \"/org/gnome/desktop/interface/color-scheme\" '\"prefer-dark\"'"
@@ -168,7 +169,7 @@
 
 			workspace = [
 				"1, on-created-empty:kitty tmux new -A"
-				"2, on-created-empty:firefox-esr & keepassxc"
+				"2, on-created-empty:firefox-esr"
 				"3, on-created-empty:vesktop"
 			];
 

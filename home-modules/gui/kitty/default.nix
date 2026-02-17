@@ -1,29 +1,32 @@
 {
-   home-modules,
-   ...
+	home-modules,
+		lib,
+		...
 }: {
-   imports = [
-      "${home-modules}/modern-coreutils"
-   ];
+	imports = [
+		"${home-modules}/modern-coreutils"
+	];
 
-   home.file.".config/kitty/kitty.conf.d".source = "${./kitty.conf.d}";
+	xdg.configFile = lib.mapAttrs' (name: type: (lib.nameValuePair "kitty/kitty.conf.d/${name}" {
+				source = "${./kitty.conf.d}/${name}";
+	})) (builtins.readDir ./kitty.conf.d);
 
-   programs.kitty = {
-      enable = true;
+	programs.kitty = {
+		enable = true;
 
-      font = {
-         name = "monospace";
-         size = 11;
-      };
+		font = {
+			name = "monospace";
+			size = 11;
+		};
 
-      shellIntegration = {
-         enableZshIntegration = true;
-         mode = "no-rc";
-      };
+		shellIntegration = {
+			enableZshIntegration = true;
+			mode = "no-rc";
+		};
 
-      extraConfig = ''
-         globinclude ./kitty.conf.d/*.conf
-      '';
-   };
+		extraConfig = ''
+			globinclude ./kitty.conf.d/*.conf
+		'';
+	};
 }
 

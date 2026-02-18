@@ -17,7 +17,6 @@
 			modules = [
 				(inputs.nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
 
-				"${sys-modules}/qt"
 				"${sys-modules}/system/networking"
 				"${sys-modules}/system/locale"
 				"${sys-modules}/system/users"

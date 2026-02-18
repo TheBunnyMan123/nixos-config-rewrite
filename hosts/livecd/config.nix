@@ -11,7 +11,6 @@
 	home-manager.users.bunny.home.stateVersion = config.system.stateVersion;
 	home-manager.users.bunny = {
 		imports = [
-			"${home-modules}/gui/stylix"
 			"${home-modules}/gui/hyprland"
 			"${home-modules}/gui/chromium"
 			"${home-modules}/gui/kitty"
@@ -46,5 +45,24 @@
 		grimblast
 		kdePackages.dolphin
 	];
+
+	systemd.services.nixos-config = if builtins.pathExists "${../..}/.git" then {
+		description = "Copy NixOS config to /etc/nixos";
+		wantedBy = ["systemd-tmpfiles-setup.service" "multi-user.target"];
+		before = ["systemd-tmpfiles-setup.service"];
+		after = ["local-fs.target"];
+		
+		serviceConfig = {
+			Type = "oneshot";
+			RemainAfterExit = true;
+		};
+
+		script = ''
+			mkdir -p /etc/nixos
+			cp -rT "${../..}"
+			chmod 777 /etc/nixos -R
+			chown -R root:root /etc/nixos
+		'';
+	} else throw "build live cd with `nix build path:#livecd` to include .git directory.";
 }
 

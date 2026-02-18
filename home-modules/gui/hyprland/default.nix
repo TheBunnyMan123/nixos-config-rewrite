@@ -73,6 +73,13 @@
 				allow_tearing = false;
 			};
 
+			master = {
+				slave_count_for_center_master = 3;
+				center_master_fallback = "left";
+				orientation = "center";
+				mfact = 0.5;
+			};
+
 			decoration = {
 				rounding = 10;
 				active_opacity = 1.0;
@@ -113,7 +120,6 @@
 			};
 
 			exec-once = [
-				"keepassxc --minimized"
 				"quickshell -c shell"
 				"swaync"
 				"dconf write \"/org/gnome/desktop/interface/color-scheme\" '\"prefer-dark\"'"
@@ -168,9 +174,9 @@
 			];
 
 			workspace = [
-				"1, on-created-empty:kitty tmux new -A"
-				"2, on-created-empty:firefox-esr"
-				"3, on-created-empty:vesktop"
+				"1, on-created-empty:sh \"${./workspace-1.sh}\""
+				"2, on-created-empty:sh \"${./workspace-2.sh}\""
+				"3, on-created-empty:sh \"${./workspace-3.sh}\""
 			];
 
 			windowrule = [

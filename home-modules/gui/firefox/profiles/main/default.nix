@@ -156,7 +156,7 @@
 					name = "NixOS Wiki";
 					urls = [
 						{
-							template = "https://wiki.nixos.org/index.php";
+							template = "https://wiki.nixos.org/w/index.php";
 							params = [
 								{
 									name = "search";

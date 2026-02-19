@@ -2,13 +2,13 @@
 
 import QtQuick
 import Quickshell
-import "./modules/border"
+import "./modules/win"
 
 ShellRoot {
    id: root
 
    Loader {
       active: true
-      sourceComponent: Border {}
+      sourceComponent: Win {}
    }
 }

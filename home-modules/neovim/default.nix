@@ -74,7 +74,7 @@
 			vim-tmux-navigator
 		];
 
-		extraLuaConfig = builtins.readFile ./config.lua;
+		initLua = builtins.readFile ./config.lua;
 	};
 }
 

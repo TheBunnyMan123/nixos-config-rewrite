@@ -5,7 +5,7 @@ import qs.services
 
 ColumnLayout {
 	height: 155
-	width: 23
+	width: parent.width
 	spacing: -6
 
 	Rectangle {

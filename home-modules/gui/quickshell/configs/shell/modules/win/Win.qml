@@ -15,7 +15,7 @@ Variants {
 		PanelWindow {
 			id: verticalBar
 			screen: modelData
-			readonly property double scale: screen.height / 1080 / 1.25;
+			readonly property double scale: screen.height / 1080
 
 			anchors {
 				top: true
@@ -28,7 +28,7 @@ Variants {
 				bottom: 6 * scale
 			}
 
-			implicitWidth: 47 * scale
+			implicitWidth: 38 * scale
 			color: "transparent"
 
 			Rectangle {

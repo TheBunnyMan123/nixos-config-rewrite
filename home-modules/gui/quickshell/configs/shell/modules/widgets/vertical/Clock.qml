@@ -5,7 +5,7 @@ import qs.services
 Rectangle {
 	anchors.left: parent.left
 	anchors.right: parent.right
-	anchors.margins: 3
+	anchors.margins: 2
 	height: 30
 	color: Colors.overlay
 	radius: 5

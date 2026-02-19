@@ -26,7 +26,7 @@ Item {
 				fillMode: Image.PreserveAspectFit
 				smooth: true
 				Layout.alignment: Qt.AlignHCenter
-				Layout.preferredWidth: 24
+				Layout.preferredWidth: 20
 				Layout.preferredHeight: 15
 
 

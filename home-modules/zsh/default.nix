@@ -12,7 +12,8 @@
    programs.zsh = {
       enable = true;
       enableCompletion = true;
-      
+      dotDir = "${config.xdg.configHome}/zsh";
+
       shellAliases = {
          l = "ls -al";
          ll = "ls -l";

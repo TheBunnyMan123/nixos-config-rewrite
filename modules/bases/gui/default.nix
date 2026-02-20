@@ -20,6 +20,7 @@
 
 	home-manager.users.bunny = {
 		imports = [
+			"${home-modules}/gui/mimeapps"
 			"${home-modules}/gui/hyprland"
 			"${home-modules}/gui/chromium"
 			"${home-modules}/gui/firefox"
@@ -43,7 +44,6 @@
 		hyprpaper
 		grimblast
 		nwg-look
-		kdePackages.dolphin
 
 		keepassxc
 	];

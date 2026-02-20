@@ -32,6 +32,7 @@
 		glib
 		swaynotificationcenter
 		quickshell
+		grimblast
 	];
 
 	home.pointerCursor = {

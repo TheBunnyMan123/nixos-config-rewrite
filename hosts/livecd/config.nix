@@ -13,8 +13,10 @@
 	home-manager.users.bunny.home.stateVersion = config.system.stateVersion;
 	home-manager.users.bunny = {
 		imports = [
+			"${home-modules}/gui/mimeapps"
 			"${home-modules}/gui/hyprland"
 			"${home-modules}/gui/chromium"
+			"${home-modules}/gui/firefox"
 			"${home-modules}/gui/kitty"
 			"${home-modules}/gui/vencord"
 		];
@@ -45,7 +47,6 @@
 		hypridle
 		hyprpaper
 		grimblast
-		kdePackages.dolphin
 	];
 
 	systemd.services.nixos-config = if builtins.pathExists "${../..}/.git" then {

@@ -7,14 +7,15 @@ MouseArea {
    property string text
    property var color
    property real leftPadding
+   property real size
 
    hoverEnabled: true
-   width: 20
-   height: 20
+   width: size
+   height: size
 
    Rectangle {
       anchors.fill: parent
-      radius: 10
+      radius: 99999
       color: root.color
 
       Text {
@@ -22,7 +23,7 @@ MouseArea {
          anchors.centerIn: parent
          color: Colors.base
          text: root.text
-         font.pixelSize: 20
+         font.pixelSize: size
       }
    }
 

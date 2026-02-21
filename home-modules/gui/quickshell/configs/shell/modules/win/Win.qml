@@ -49,7 +49,7 @@ Variants {
 						anchors.topMargin: 6
 						anchors.bottomMargin: 6
 						width: parent.width
-						spacing: 16
+						spacing: 14
 						
 						SystemTray {
 							Layout.alignment: Qt.AlignHCenter
@@ -61,6 +61,10 @@ Variants {
 						}
 
 						Workspaces {
+							Layout.alignment: Qt.AlignHCenter
+						}
+
+						Volume {
 							Layout.alignment: Qt.AlignHCenter
 						}
 

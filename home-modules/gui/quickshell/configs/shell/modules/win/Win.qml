@@ -3,7 +3,6 @@ import QtQuick.Layouts
 import Quickshell
 import qs.config
 import qs.services
-import qs.modules.widgets.horizontal
 import qs.modules.widgets.vertical
 
 Variants { 
@@ -45,28 +44,33 @@ Variants {
 						yScale: verticalBar.scale * 2
 					}
 
-					SystemTray {
-						Layout.alignment: Qt.AlignHCenter
-						parentWindow: verticalBar
-						anchors.top: parent.top
+					ColumnLayout {
+						anchors.fill: parent
 						anchors.topMargin: 6
-					}
-
-					Workspaces {
-						Layout.alignment: Qt.AlignHCenter
-						anchors.bottom: parent.bottom
-						anchors.bottomMargin: 208
-					}
-
-					SystemMonitor {
-						anchors.bottom: parent.bottom
-						anchors.bottomMargin: 45
-						Layout.alignment: Qt.AlignHCenter
-					}
-
-					Clock {
-						anchors.bottom: parent.bottom
 						anchors.bottomMargin: 6
+						width: parent.width
+						spacing: 16
+						
+						SystemTray {
+							Layout.alignment: Qt.AlignHCenter
+							parentWindow: verticalBar
+						}
+
+						Item {
+							Layout.fillHeight: true
+						}
+
+						Workspaces {
+							Layout.alignment: Qt.AlignHCenter
+						}
+
+						SystemMonitor {
+							Layout.alignment: Qt.AlignHCenter
+						}
+
+						Clock {
+							Layout.alignment: Qt.AlignHCenter
+						}
 					}
 				}
 			}

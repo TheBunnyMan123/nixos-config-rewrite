@@ -5,14 +5,13 @@ import qs.config
 import qs.services
 
 Item {
-	anchors.top: parent.top
-
+	width: 15
+	height: childrenRect.height
 	required property var parentWindow
 
 	property var items: ({})
 
 	ColumnLayout {
-		anchors.top: parent.top
 		width: parent.width
 		spacing: 5
 		id: tray
@@ -26,7 +25,7 @@ Item {
 				fillMode: Image.PreserveAspectFit
 				smooth: true
 				Layout.alignment: Qt.AlignHCenter
-				Layout.preferredWidth: 20
+				Layout.preferredWidth: 15
 				Layout.preferredHeight: 15
 
 

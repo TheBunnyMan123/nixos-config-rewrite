@@ -6,7 +6,7 @@ import qs.services
 ColumnLayout {
 	height: 155
 	width: parent.width
-	spacing: -6
+	spacing: 0
 
 	Rectangle {
 		id: storage

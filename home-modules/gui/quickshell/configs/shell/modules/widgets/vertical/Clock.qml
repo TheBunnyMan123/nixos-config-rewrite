@@ -3,10 +3,8 @@ import qs.config
 import qs.services
 
 Rectangle {
-	anchors.left: parent.left
-	anchors.right: parent.right
-	anchors.margins: 2
 	height: 30
+	width: 15
 	color: Colors.overlay
 	radius: 5
 

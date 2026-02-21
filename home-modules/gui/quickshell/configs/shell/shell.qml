@@ -2,13 +2,13 @@
 
 import QtQuick
 import Quickshell
-import "./modules/win"
+import qs.modules.bar
+import qs.modules.notifications
 
 ShellRoot {
-   id: root
+	id: root
 
-   Loader {
-      active: true
-      sourceComponent: Win {}
-   }
+	Bar {}
+
+	Notifications {}
 }

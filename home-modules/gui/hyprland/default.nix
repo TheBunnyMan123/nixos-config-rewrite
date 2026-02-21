@@ -30,7 +30,6 @@
 		hyprpicker
 		dconf
 		glib
-		swaynotificationcenter
 		quickshell
 		grimblast
 	];
@@ -122,7 +121,6 @@
 
 			exec-once = [
 				"quickshell -c shell"
-				"swaync"
 				"dconf write \"/org/gnome/desktop/interface/color-scheme\" '\"prefer-dark\"'"
 				"dconf write \"/org/gnome/desktop/interface/gtk-theme\" '\"Adwaita-dark\"'"
 			];
@@ -206,6 +204,15 @@
 					idle_inhibit = "always";
 					animation = "popin";
 					content = "video";
+				}
+			];
+
+			layerrule = [
+				{
+					name = "quickshell";
+					"match:namespace" = "quickshell";
+					
+					no_anim = "on";
 				}
 			];
 

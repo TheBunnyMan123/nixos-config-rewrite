@@ -15,6 +15,7 @@ Variants {
 			id: verticalBar
 			screen: modelData
 			readonly property double scale: screen.height / 1080
+			aboveWindows: true
 
 			anchors {
 				top: true

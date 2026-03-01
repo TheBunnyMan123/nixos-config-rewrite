@@ -4,14 +4,16 @@
    ...
 }: {
    imports = [
+      "${sys-modules}/programs/lutris"
       "${sys-modules}/programs/steam"
       "${sys-modules}/bases/gui"
       "${sys-modules}/bases/tty"
       "${sys-modules}/virtualization"
    ];
 
+   services.udev.packages = with pkgs; [ game-devices-udev-rules ];
+
    environment.systemPackages = with pkgs; [
-      lutris
       prismlauncher
    ];
    

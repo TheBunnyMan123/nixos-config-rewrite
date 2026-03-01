@@ -1,6 +1,8 @@
 {
+	config,
 	pkgs,
-		...
+	lib,
+	...
 }: {
 	programs.steam = {
 		enable = true;
@@ -14,9 +16,10 @@
 
 	hardware.steam-hardware.enable = true;
 
+	environment.variables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = lib.makeSearchPathOutput "steamcompattool" "" config.programs.steam.extraCompatPackages;
 	environment.systemPackages = [
 		pkgs.steam
-			pkgs.steamcmd
+		pkgs.steamcmd
 	];
 }
 

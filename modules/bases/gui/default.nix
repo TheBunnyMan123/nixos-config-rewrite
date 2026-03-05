@@ -13,6 +13,7 @@
 		"${sys-modules}/system/audio"
 		"${sys-modules}/system/graphics"
 		"${sys-modules}/system/input/touchpad"
+		"${sys-modules}/system/input/keyboard/gmk67"
 		"${sys-modules}/nix"
 
 		"${sys-modules}/bases/tty"
@@ -47,5 +48,8 @@
 
 		keepassxc
 	];
+
+	services.udev.extraRules = ''
+	'';
 }
 

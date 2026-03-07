@@ -1,0 +1,25 @@
+prefer-no-csd
+
+layout {
+	focus-ring { off; }
+
+	border {
+		on
+		width 4
+		active-color "#74c7ec"
+		inactive-color "#45475a"
+		urgent-color "#f9e2af"
+	}
+
+	tab-indicator {
+		active-color "#74c7ec"
+		inactive-color "#45475a"
+		urgent-color "#f9e2af"
+	}
+	
+	default-column-width { proportion 0.4; }
+	gaps 12
+
+	empty-workspace-above-first
+}
+

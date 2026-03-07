@@ -61,9 +61,6 @@ Variants {
 							Layout.fillHeight: true
 						}
 
-						Workspaces {
-							Layout.alignment: Qt.AlignHCenter
-						}
 
 						Volume {
 							Layout.alignment: Qt.AlignHCenter

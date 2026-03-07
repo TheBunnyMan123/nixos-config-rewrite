@@ -22,13 +22,15 @@
 	home-manager.users.bunny = {
 		imports = [
 			"${home-modules}/gui/mimeapps"
-			"${home-modules}/gui/hyprland"
+			"${home-modules}/gui/niri"
 			"${home-modules}/gui/chromium"
 			"${home-modules}/gui/firefox"
 			"${home-modules}/gui/kitty"
 			"${home-modules}/gui/vencord"
 		];
 	};
+
+	home-manager.users.bunny.xdg.configFile."niri/display.kdl".source = ./display.kdl;
 
 	environment.systemPackages = with pkgs; [
 		cemu-ti
@@ -48,8 +50,5 @@
 
 		keepassxc
 	];
-
-	services.udev.extraRules = ''
-	'';
 }
 

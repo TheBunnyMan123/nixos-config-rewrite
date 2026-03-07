@@ -1,0 +1,18 @@
+include "conf.d/animations.kdl"
+include "conf.d/input.kdl"
+include "conf.d/layout.kdl"
+include "conf.d/window-rules.kdl"
+
+screenshot-path "~/Pictures/screenshots/scrn_%Y-%m-%d %H-%M-%S.png"
+
+spawn-at-startup "quickshell" "-c" "shell"
+spawn-at-startup "hyprpaper"
+spawn-at-startup "dconf" "write" "/org/gnome/desktop/interface/color-scheme" "\"prefer-dark\""
+spawn-at-startup "dconf" "write" "/org/gnome/desktop/interface/gtk-theme" "\"Adwaita-dark\""
+
+gestures {
+	hot-corners {
+		off
+	}
+}
+

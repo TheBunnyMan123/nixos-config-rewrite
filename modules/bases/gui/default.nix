@@ -1,5 +1,6 @@
 {
 	pkgs,
+	lib,
 	sys-modules,
 	home-modules,
 		...
@@ -30,6 +31,7 @@
 		];
 	};
 
+	home-manager.backupFileExtension = "bak";
 	home-manager.users.bunny.xdg.configFile."niri/display.kdl".source = ./display.kdl;
 
 	environment.systemPackages = with pkgs; [

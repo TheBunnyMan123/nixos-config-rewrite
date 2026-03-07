@@ -23,7 +23,8 @@ binds {
 	Mod+Shift+S	repeat=false { screenshot-window; }
 	Mod+Ctrl+S	repeat=false { screenshot-screen; }
 	Mod+C		repeat=false hotkey-overlay-title="Close Window" { close-window; }
-	Mod+Shift+C	repeat=false hotkey-overlay-title="Kill Window" { spawn "ls"; }
+	Mod+Shift+C	repeat=false hotkey-overlay-title="Kill Window" { spawn-sh "kill -9 \"$(niri msg -j windows | jq '.[] | select(.is_focused == true).pid')\""; }
+	Mod+Ctrl+C	repeat=false { quit; }
 
 
 	XF86AudioRaiseVolume	allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

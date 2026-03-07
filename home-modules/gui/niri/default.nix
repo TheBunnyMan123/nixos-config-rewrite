@@ -3,7 +3,10 @@
 	pkgs,
 	lib,
 	...
-}: {
+}: let
+	confList = lib.filesystem.listFilesRecursive ./conf;
+	mkRelative = path: lib.removePrefix "./" (toString (lib.path.removePrefix ./conf path));
+in {
 	imports = [
 		"${home-modules}/gui/hyprpaper"
 		"${home-modules}/gui/kitty"
@@ -50,6 +53,11 @@
 	];
 
 	xdg.enable = true;
-	xdg.configFile.niri.source = ./conf;
+	xdg.configFile = builtins.listToAttrs (map (item: {
+		name = "niri/${mkRelative item}";
+		value = {
+			source = lib.mkDefault item;
+		};
+	}) confList);
 }
 

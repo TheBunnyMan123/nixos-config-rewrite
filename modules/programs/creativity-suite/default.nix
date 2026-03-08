@@ -7,6 +7,7 @@
 		inkscape
 		blender
 		libreoffice
+		obs-studio
 
 		kdePackages.kolourpaint
 	];

@@ -1,0 +1,17 @@
+binds {
+	Mod+Shift+Z	{ set-dynamic-cast-window; }
+	Mod+Ctrl+Z	{ set-dynamic-cast-monitor; }
+	Mod+Z		{ clear-dynamic-cast-target; }
+}
+
+window-rule {
+	match is-window-cast-target=true
+	
+	border {
+		on
+		width 4
+		active-color "#f38ba8"
+		inactive-color "#b34b68"
+	}
+}
+

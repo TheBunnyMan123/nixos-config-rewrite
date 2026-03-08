@@ -24,7 +24,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id=r#"minecraft$"# 
+	match app-id=r#"minecraft(\.java-edition)?$"# 
 
 	default-column-width { proportion 0.6; }
 }

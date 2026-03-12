@@ -3,6 +3,7 @@ include "conf.d/input.kdl"
 include "conf.d/layout.kdl"
 include "conf.d/window-rules.kdl"
 include "conf.d/cast.kdl"
+include "conf.d/env.kdl"
 include "display.kdl"
 
 screenshot-path "~/Pictures/screenshots/scrn_%Y-%m-%d %H-%M-%S.png"

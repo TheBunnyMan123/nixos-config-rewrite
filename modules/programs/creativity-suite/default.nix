@@ -1,5 +1,6 @@
 {
 	pkgs,
+	pkgsAug2025,
 	...
 }: {
 	environment.systemPackages = with pkgs; [
@@ -10,6 +11,9 @@
 		obs-studio
 
 		kdePackages.kolourpaint
+
+
+		pkgsAug2025.blockbench
 	];
 }
 

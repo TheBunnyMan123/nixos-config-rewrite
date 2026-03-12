@@ -32,7 +32,7 @@
 		flake-parts.url = "github:hercules-ci/flake-parts";
 		hardware.url = "github:nixos/nixos-hardware";
 		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-		nixpkgs-oct-11-2025.url = "github:NixOS/nixpkgs/362791944032cb532aabbeed7887a441496d5e6e";
+		nixpkgs-august-2025.url = "github:NixOS/nixpkgs/1c3b10e04b7ff1948b5a3eda3d33547506fb8fee";
 	};
 
 	outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {

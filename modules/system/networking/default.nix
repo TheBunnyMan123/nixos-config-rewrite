@@ -1,10 +1,11 @@
 {
-	config,
-		...
+	...
 }: {
 	networking = {
 		wireless = {
 			enable = true;
+			userControlled = true;
+
 			networks = {
 				"Nacho WiFi" = {
 					pskRaw = "68ab5f9da6b1f9483e4ab7cd0bfc56359d733ef32d735a9b11140aac9985e327";
@@ -17,17 +18,6 @@
 				};
 			};
 		};
-
-		nat = {
-			enable = true;
-			internalInterfaces = [ ];
-			externalInterface = "wlp4s0";
-			enableIPv6 = true;
-		};
-
-		nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
-
-		search = [ "kamori-ghoul.ts.net" ];
 
 		firewall = {
 			enable = true;
@@ -43,8 +33,8 @@
 		enable = true;
 		settings = {
 			Resolve = {
-				DNS = config.networking.nameservers;
-				Domains = config.networking.search;
+				DNS = [ "2606:4700:4700::1111,2606:4700:4700::1001" "1.1.1.1" "1.0.0.1" "100.100.100.100" ];
+				Domains = [ "kamori-ghoul.ts.net" ];
 			};
 		};
 	};

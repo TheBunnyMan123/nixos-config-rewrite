@@ -37,7 +37,7 @@
 	environment.systemPackages = with pkgs; [
 		cemu-ti
 		audacity
-		vlc
+		mpv
 
 		rofi
 		waybar

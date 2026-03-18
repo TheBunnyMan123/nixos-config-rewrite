@@ -1,3 +1,5 @@
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("eslint")
 vim.lsp.enable("ccls")
 vim.lsp.enable("nixd")
 vim.lsp.enable("bashls")

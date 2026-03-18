@@ -7,6 +7,7 @@
    imports = [
       "${sys-modules}/programs/zsh"
       "${sys-modules}/programs/obsidian"
+      "${sys-modules}/mounts"
    ];
 
    services.upower.enable = true;

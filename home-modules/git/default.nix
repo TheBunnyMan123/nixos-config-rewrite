@@ -1,6 +1,11 @@
 {
+	pkgs,
 	...
 }: {
+	home.packages = [
+		pkgs.stgit
+	];
+
 	programs.git = {
 		enable = true;
 		settings = {

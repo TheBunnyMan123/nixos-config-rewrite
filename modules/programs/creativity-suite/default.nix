@@ -13,6 +13,7 @@
 		inkscape
 		blender
 		libreoffice
+		ffmpeg
 
 		kdePackages.kolourpaint
 

@@ -9,6 +9,8 @@
       home-modules = "${self}/home-modules";
       specialArgs = {
          inherit inputs self sys-modules home-modules;
+	 pkgsAug2025 = inputs.nixpkgs-august-2025.legacyPackages."x86_64-linux";
+	 NixOSUtils = inputs.nixos-utils.nixosModules."x86_64-linux";
       };
    in {
       laptop = lib.nixosSystem {

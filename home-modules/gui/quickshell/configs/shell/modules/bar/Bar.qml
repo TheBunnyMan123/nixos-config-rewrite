@@ -70,6 +70,10 @@ Variants {
 							Layout.alignment: Qt.AlignHCenter
 						}
 
+						Battery {
+							Layout.alignment: Qt.AlignHCenter
+						}
+
 						Clock {
 							Layout.alignment: Qt.AlignHCenter
 						}

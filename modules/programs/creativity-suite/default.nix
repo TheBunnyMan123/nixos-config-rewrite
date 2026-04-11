@@ -16,6 +16,7 @@
 		ffmpeg
 
 		kdePackages.kolourpaint
+		kdePackages.kdenlive
 
 		pkgsAug2025.blockbench
 	];

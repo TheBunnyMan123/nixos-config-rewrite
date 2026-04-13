@@ -1,17 +1,23 @@
 input {
-    touchpad {
-        tap
-        natural-scroll
-    }
+	keyboard {
+		xkb {
+			options "compose:ralt"
+		}
+	}
 
-    warp-mouse-to-focus
+	touchpad {
+		tap
+		natural-scroll
+	}
 
-    focus-follows-mouse max-scroll-amount="10%"
+	warp-mouse-to-focus
+
+	focus-follows-mouse max-scroll-amount="10%"
 }
 
 binds {
 	Mod+Shift+Slash { show-hotkey-overlay; }
-	
+
 
 	Mod+Q		hotkey-overlay-title="Launch Kitty (tmux)" { spawn "kitty" "tmux" "new" "-A"; }
 	Mod+Shift+Q	hotkey-overlay-title="Launch Kitty" { spawn "kitty"; }
@@ -36,10 +42,10 @@ binds {
 	XF86AudioStop	allow-when-locked=true { spawn-sh "playerctl stop"; }
 	XF86AudioPrev	allow-when-locked=true { spawn-sh "playerctl previous"; }
 	XF86AudioNext	allow-when-locked=true { spawn-sh "playerctl next"; }
-    
+
 	XF86MonBrightnessUp	allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
 	XF86MonBrightnessDown	allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-	
+
 
 	Mod+Left  { focus-column-left; }
 	Mod+Down  { focus-window-or-workspace-down; }
@@ -58,12 +64,12 @@ binds {
 	Mod+Shift+J     { move-window-down-or-to-workspace-down; }
 	Mod+Shift+K     { move-window-up-or-to-workspace-up; }
 	Mod+Shift+L     { move-column-right; }
-    
+
 	Mod+Ctrl+Up	{ move-workspace-up; }
 	Mod+Ctrl+Down	{ move-workspace-down; }
 	Mod+Ctrl+K	{ move-workspace-up; }
 	Mod+Ctrl+J	{ move-workspace-down; }
-	
+
 	Mod+BracketLeft 	{ consume-or-expel-window-left; }
 	Mod+BracketRight	{ consume-or-expel-window-right; }
 

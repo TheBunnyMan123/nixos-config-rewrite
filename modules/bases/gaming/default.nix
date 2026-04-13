@@ -4,6 +4,7 @@
    ...
 }: {
    imports = [
+      "${sys-modules}/programs/prismlauncher"
       "${sys-modules}/programs/lutris"
       "${sys-modules}/programs/steam"
       "${sys-modules}/bases/gui"
@@ -13,10 +14,6 @@
 
    services.udev.packages = with pkgs; [ game-devices-udev-rules ];
 
-   environment.systemPackages = with pkgs; [
-      prismlauncher
-   ];
-   
    networking.firewall = {
       allowedTCPPorts = [
          25565

@@ -2,13 +2,36 @@
 	pkgs,
 	NixOSUtils,
 	...
-}: {
-	programs.firefox = {
+}: let
+	mkWiki = {name, url, icon, aliases}: {
+		name = name;
+		urls = [
+			{
+				template = url;
+				params = [
+					{
+						name = "search";
+						value = "{searchTerms}";
+					}
+					{
+						name = "title";
+						value = "Special:Search";
+					}
+				];
+			}
+		];
+
+		icon = icon;
+		definedAliases = aliases;
+	};
+in {
+	programs.firefox = rec {
 		nativeMessagingHosts = [
 			pkgs.keepassxc
 		];
 
-		profiles.main = {
+		profiles.dev-edition-default = profiles.default;
+		profiles.default = {
 			id = 0;
 			isDefault = true;
 
@@ -152,26 +175,32 @@
 					definedAliases = [ "@no" ];
 				};
 
-				nixos-wiki = {
+				nixos-wiki = mkWiki {
 					name = "NixOS Wiki";
-					urls = [
-						{
-							template = "https://wiki.nixos.org/w/index.php";
-							params = [
-								{
-									name = "search";
-									value = "{searchTerms}";
-								}
-								{
-									name = "title";
-									value = "Special:Search";
-								}
-							];
-						}
-					];
-
+					url = "https://wiki.nixos.org/w/index.php";
 					icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-					definedAliases = [ "@nw" ];
+					aliases = [ "@nw" ];
+				};
+
+				complex-wikipedia = mkWiki {
+					name = "Wikipedia";
+					url = "https://en.wikipedia.org/w/index.php";
+					icon = "https://en.wikipedia.org/favicon.ico";
+					aliases = [ "@wk" ];
+				};
+
+				simple-wikipedia = mkWiki {
+					name = "Simple Wikipedia";
+					url = "https://simple.wikipedia.org/w/index.php";
+					icon = "https://simple.wikipedia.org/favicon.ico";
+					aliases = [ "@sw" ];
+				};
+				
+				minecraft-wiki = mkWiki {
+					name = "Minecraft Wiki";
+					url = "https://minecraft.wiki/";
+					icon = "https://minecraft.wiki/favicon.ico";
+					aliases = [ "@mc" ];
 				};
 			};
 

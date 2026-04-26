@@ -15,7 +15,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id=r#"firefox(-esr)?$"# title=r#"^Picture-in-Picture$"#
+	match app-id=r#"firefox(-devedition)?$"# title=r#"^Picture-in-Picture$"#
 	
 	open-floating true
 	default-floating-position x=10 y=10 relative-to="top-right"
@@ -35,7 +35,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id=r#"firefox(-esr)?$"# 
+	match app-id=r#"firefox(-devedition)?$"# 
 
 	default-column-width { proportion 0.6; }
 }

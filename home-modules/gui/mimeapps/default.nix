@@ -1,6 +1,7 @@
 {
 	pkgs,
 	home-modules,
+	config,
 	...
 }: let
 	packages = with pkgs; [
@@ -8,7 +9,7 @@
 		gthumb
 		yazi
 		libreoffice
-		firefox-esr
+		config.programs.firefox.package
 	];
 in {
 	imports = [ "${home-modules}/gui/firefox" ];

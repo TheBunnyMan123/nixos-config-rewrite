@@ -14,7 +14,7 @@
 	home-manager.users.bunny = {
 		imports = [
 			"${home-modules}/gui/mimeapps"
-			"${home-modules}/gui/hyprland"
+			"${home-modules}/gui/niri"
 			"${home-modules}/gui/chromium"
 			"${home-modules}/gui/firefox"
 			"${home-modules}/gui/kitty"

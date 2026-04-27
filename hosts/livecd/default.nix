@@ -8,6 +8,8 @@
 		sys-modules = "${self}/modules";
 		home-modules = "${self}/home-modules";
 		specialArgs = {
+	 pkgsAug2025 = inputs.nixpkgs-august-2025.legacyPackages."x86_64-linux";
+	 NixOSUtils = inputs.nixos-utils.nixosModules."x86_64-linux";
 			inherit inputs sys-modules home-modules;
 		};
 	in {

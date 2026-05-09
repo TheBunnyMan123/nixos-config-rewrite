@@ -2,6 +2,18 @@
 	...
 }: {
 	fileSystems = {
+		"/home/bunny/Sync/figura/data/tmp" = rec {
+			options = [
+				"size=1M"
+				"mode=777"
+				"noexec"
+				"nosuid"
+			];
+			depends = [ "/home/bunny/Sync/figura/data/tmp" ];
+			fsType = "tmpfs";
+			device = "tmpfs";
+		};
+
 		"/home/bunny/Sync/figura/data/avatars/niko" = rec {
 			device = "/home/bunny/Sync/figura/avatars/others/niko";
 			options = [ "bind" "ro" ];

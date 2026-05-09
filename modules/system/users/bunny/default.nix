@@ -30,6 +30,8 @@
 
    home-manager.users.bunny = {
       imports = [
+         "${home-modules}/imagemagick"
+         "${home-modules}/useless-commands"
          "${home-modules}/modern-coreutils"
          "${home-modules}/fastfetch"
          "${home-modules}/neovim"

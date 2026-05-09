@@ -31,6 +31,8 @@ in {
 		};
 	};
 	
+	home.file.".bin/niri-active.sh".source = ./niri-active.sh;
+
 	home.pointerCursor = {
 		enable = true;
 		dotIcons.enable = true;
@@ -51,6 +53,7 @@ in {
 		niri
 		dconf
 		xwayland-satellite
+		jq
 	];
 
 	xdg.enable = true;

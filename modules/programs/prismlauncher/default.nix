@@ -1,8 +1,10 @@
 # MAKE SURE TO USE SYSTEM LIBS IN MC
 {
 	pkgs,
+	sys-modules,
 	...
 }: {
+	imports = [ "${sys-modules}/programs/viaproxy" ];
 	environment.systemPackages = [
 		(pkgs.prismlauncher.override {
 			glfw3-minecraft = pkgs.glfw3-minecraft.override {

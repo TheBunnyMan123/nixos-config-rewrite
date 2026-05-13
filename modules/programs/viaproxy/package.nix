@@ -45,6 +45,7 @@ in stdenv.mkDerivation {
 			--set-default _JAVA_AWT_WM_NONREPARENTING 1 \
 			--run "mkdir -p \''${XDG_DATA_HOME:-\$HOME/.local/share}/viaproxy && cd \''${XDG_DATA_HOME:-\$HOME/.local/share}/viaproxy" \
 			--add-flags "-jar $out/share/java/ViaVersion.jar"
+		runHook postInstall
 	'';
 }
 

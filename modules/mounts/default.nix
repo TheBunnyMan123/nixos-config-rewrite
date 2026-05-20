@@ -28,6 +28,13 @@
 			fsType = "auto";
 		};
 
+		"/home/bunny/Sync/figura/data/localonly" = rec {
+			device = "/home/bunny/Sync/figura/avatars/others/simon/host_only";
+			options = [ "bind" "ro" ];
+			depends = [ device "/home/bunny/Sync/figura/data" ];
+			fsType = "auto";
+		};
+
 		"/home/bunny/Sync/figura/data/avatars/aeliana" = rec {
 			device = "/home/bunny/Sync/figura/avatars/aeliana";
 			options = [ "bind" "ro" ];

@@ -39,6 +39,9 @@
 		audacity
 		mpv
 
+		uv
+
+		tor-browser
 		rofi
 		waybar
 		swaynotificationcenter

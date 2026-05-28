@@ -3,6 +3,7 @@
 	...
 }: {
 	imports = [
+		"${sys-modules}/nix/ld"
 		"${sys-modules}/nix/auto-optimise"
 		"${sys-modules}/nix/auto-garbage-collect"
 	];

@@ -11,6 +11,7 @@
       "${sys-modules}/virtualization/docker"
 
       "${sys-modules}/system"
+      "${sys-modules}/system/drivers/disk"
       "${sys-modules}/system/networking"
       "${sys-modules}/system/networking/syncthing"
       "${sys-modules}/system/locale"

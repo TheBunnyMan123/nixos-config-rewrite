@@ -14,6 +14,7 @@
 		blender
 		libreoffice
 		ffmpeg
+		krita
 
 		kdePackages.kolourpaint
 		kdePackages.kdenlive

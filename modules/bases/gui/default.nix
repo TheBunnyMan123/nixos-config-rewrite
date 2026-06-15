@@ -11,6 +11,7 @@
 		"${sys-modules}/programs/tilp"
 		"${sys-modules}/programs/hyprland"
 		"${sys-modules}/programs/creativity-suite"
+		"${sys-modules}/programs/idea"
 		"${sys-modules}/system/audio"
 		"${sys-modules}/system/graphics"
 		"${sys-modules}/system/input/touchpad"
@@ -54,6 +55,8 @@
 		nwg-look
 
 		keepassxc
+		wine
+		mono
 	];
 }
 

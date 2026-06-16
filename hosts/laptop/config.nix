@@ -27,6 +27,8 @@
       rcs
       bat
       w3m
+
+      brightnessctl
    ];
 }
 

@@ -13,6 +13,7 @@
 		"${sys-modules}/programs/creativity-suite"
 		"${sys-modules}/programs/idea"
 		"${sys-modules}/system/audio"
+		"${sys-modules}/system/audio/pipewire/filtered-mic"
 		"${sys-modules}/system/graphics"
 		"${sys-modules}/system/input/touchpad"
 		"${sys-modules}/system/input/keyboard/gmk67"

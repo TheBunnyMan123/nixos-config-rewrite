@@ -7,6 +7,10 @@
       inputs.hardware.nixosModules.framework-13-7040-amd
    ];
 
+   swapDevices = [
+	{device = "/swapfile"; size=16384;}
+   ];
+
    system.stateVersion = "23.05";
    networking.hostName = "NixOS-Laptop";
    home-manager.users.bunny.home.stateVersion = "23.05";

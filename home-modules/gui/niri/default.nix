@@ -15,6 +15,7 @@ in {
 		"${home-modules}/gui/rofi"
 		"${home-modules}/gui/gtk"
 		"${home-modules}/gui/qt"
+		"${home-modules}/gui/cursors"
 	];
 	
 	xdg.portal = {
@@ -33,15 +34,6 @@ in {
 	
 	home.file.".bin/niri-active.sh".source = ./niri-active.sh;
 
-	home.pointerCursor = {
-		enable = true;
-		dotIcons.enable = true;
-		gtk.enable = true;
-		package = pkgs.catppuccin-cursors.mochaMauve;
-		name = "catppuccin-mocha-mauve-cursors";
-		size = 24;
-	};
-	
 	programs.zsh.initContent = lib.mkBefore ''
 		if [[ "$(tty)" == "/dev/tty1" ]]
 		then

@@ -8,10 +8,18 @@
 		enable = true;
 		remotePlay.openFirewall = true;
 		localNetworkGameTransfers.openFirewall = true;
+		extraPackages = with pkgs; [
+		  gamescope
+		];
 		extraCompatPackages = with pkgs; [
 			proton-ge-bin
 			steam-play-none
 		];
+	};
+
+	programs.gamescope = {
+		enable = true;
+		capSysNice = false;
 	};
 
 	hardware.steam-hardware.enable = true;

@@ -5,14 +5,14 @@
 }: {
    flake.nixosConfigurations = let
       inherit (inputs.nixpkgs) lib;
-      sys-modules = "${self}/modules";
-      home-modules = "${self}/home-modules";
+      sys-modules = "${self}/sys-modules";
       specialArgs = {
-         inherit inputs self sys-modules home-modules;
+         inherit inputs self sys-modules;
 	 pkgsAug2025 = inputs.nixpkgs-august-2025.legacyPackages."x86_64-linux";
 	 NixOSUtils = inputs.nixos-utils.nixosModules."x86_64-linux";
 	 isGui = true;
 	 isGaming = true;
+	 nixModules = self.nixosModules;
          
          #pkgsPatched = import inputs.nixpkgs {
          #   config.allowUnfree = true;

@@ -22,7 +22,7 @@
 	];
 
 	home-manager.backupFileExtension = "bak";
-	home-manager.users.solina.xdg.configFile."niri/display.kdl".source = ./display.kdl;
+	home-manager.users.solina.xdg.configFile."niri/display.kdl".source = lib.mkDefault ./display.kdl;
 
 	environment.systemPackages = with pkgs; [
 		cemu-ti

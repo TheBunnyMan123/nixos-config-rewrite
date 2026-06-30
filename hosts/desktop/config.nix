@@ -16,6 +16,8 @@
       "DP-1,1920x1080@143.86Hz,0x0,1"
    ];
 
+   home-manager.users.solina.xdg.configFile."niri/display.kdl".source = ./niri-display.kdl;
+
    environment.systemPackages = with pkgs; [
       (jdk21.override {enableJavaFX = true;})
 

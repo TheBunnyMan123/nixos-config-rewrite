@@ -38,7 +38,7 @@
 	outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
 		imports = [
 			./hosts
-			./prefabs
+			./nix-modules
 		];
 
 		systems = [ "x86_64-linux" ];

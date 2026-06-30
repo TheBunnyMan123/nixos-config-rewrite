@@ -6,26 +6,15 @@
 	...
 }: {
 	isoImage.squashfsCompression = "gzip -Xcompression-level 1";
-	isoImage.edition = lib.mkForce "bunnyconf";
+	isoImage.edition = lib.mkForce "solinaconf";
 	networking.hostName = "NixOS-LiveCD";
 	fonts.fontconfig.enable = lib.mkForce true;
 	home-manager.useGlobalPkgs = true;
-	home-manager.users.bunny.home.stateVersion = config.system.stateVersion;
-	home-manager.users.bunny = {
-		imports = [
-			"${home-modules}/gui/mimeapps"
-			"${home-modules}/gui/niri"
-			"${home-modules}/gui/chromium"
-			"${home-modules}/gui/firefox"
-			"${home-modules}/gui/kitty"
-			"${home-modules}/gui/vencord"
-		];
-	};
 
 	nixpkgs.hostPlatform = "x86_64-linux";
 	networking.networkmanager.enable = lib.mkForce false;
 
-	services.getty.autologinUser = lib.mkForce "bunny";
+	services.getty.autologinUser = lib.mkForce "solina";
 
 	environment.systemPackages = with pkgs; [
 		coreutils-full

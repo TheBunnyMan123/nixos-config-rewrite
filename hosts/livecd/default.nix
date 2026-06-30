@@ -5,12 +5,15 @@
 }: {
 	flake = let
 		inherit (inputs.nixpkgs) lib;
-		sys-modules = "${self}/modules";
-		home-modules = "${self}/home-modules";
+		sys-modules = "${self}/sys-modules";
+		packages = "${self}/packages";
 		specialArgs = {
-	 pkgsAug2025 = inputs.nixpkgs-august-2025.legacyPackages."x86_64-linux";
-	 NixOSUtils = inputs.nixos-utils.nixosModules."x86_64-linux";
-			inherit inputs sys-modules home-modules;
+			pkgsAug2025 = inputs.nixpkgs-august-2025.legacyPackages."x86_64-linux";
+			NixOSUtils = inputs.nixos-utils.nixosModules."x86_64-linux";
+			nixModules = self.nixosModules;
+			isGui = true;
+			isGaming = false;
+			inherit inputs sys-modules packages;
 		};
 	in {
 		tmp = builtins.trace "${inputs.nixpkgs}";
@@ -23,8 +26,7 @@
 				"${sys-modules}/system/locale"
 				"${sys-modules}/system/users"
 				"${sys-modules}/system/users/root"
-				"${sys-modules}/system/users/bunny"
-				"${sys-modules}/home/users/bunny"
+				"${sys-modules}/system/users/solina"
 				"${sys-modules}/services/avahi"
 				"${sys-modules}/services/openssh"
 				"${sys-modules}/fonts"

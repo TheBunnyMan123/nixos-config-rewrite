@@ -11,6 +11,8 @@
          inherit inputs self sys-modules home-modules;
 	 pkgsAug2025 = inputs.nixpkgs-august-2025.legacyPackages."x86_64-linux";
 	 NixOSUtils = inputs.nixos-utils.nixosModules."x86_64-linux";
+	 isGui = true;
+	 isGaming = true;
          
          #pkgsPatched = import inputs.nixpkgs {
          #   config.allowUnfree = true;
@@ -30,8 +32,7 @@
             "${sys-modules}/system/boot/grub"
             "${sys-modules}/system/boot/efi"
 
-            "${sys-modules}/system/users/bunny"
-            "${sys-modules}/home/users/bunny"
+            "${sys-modules}/system/users/solina"
 
             "${sys-modules}/bases/gaming"
 

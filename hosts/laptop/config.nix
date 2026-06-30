@@ -13,10 +13,6 @@
 
    system.stateVersion = "23.05";
    networking.hostName = "NixOS-Laptop";
-   home-manager.users.bunny.home.stateVersion = "23.05";
-   home-manager.users.bunny.wayland.windowManager.hyprland.settings.monitor = [
-      "eDP-1,2256x1504@60.00Hz,0x0,1.66666"
-   ];
 
    environment.systemPackages = with pkgs; [
       (jdk21.override {enableJavaFX = true;})

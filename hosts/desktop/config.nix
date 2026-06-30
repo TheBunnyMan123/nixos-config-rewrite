@@ -11,7 +11,6 @@
 
    system.stateVersion = "25.05";
    networking.hostName = "NixOS-Desktop";
-   home-manager.users.solina.home.stateVersion = "25.05";
    home-manager.users.solina.wayland.windowManager.hyprland.settings.monitor = [
       "DP-1,1920x1080@143.86Hz,0x0,1"
    ];

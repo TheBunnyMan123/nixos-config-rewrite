@@ -4,7 +4,7 @@
 	isGaming,
 	...
 }: {
-	home.stateVersion = "23.05";
+	home.stateVersion = "25.05";
 	imports = [
 		"${userParams.solina.home-modules}/imagemagick"
 		"${userParams.solina.home-modules}/useless-commands"

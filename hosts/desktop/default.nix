@@ -6,8 +6,9 @@
    flake.nixosConfigurations = let
       inherit (inputs.nixpkgs) lib;
       sys-modules = "${self}/sys-modules";
+      packages = "${self}/packages";
       specialArgs = {
-         inherit inputs self sys-modules;
+         inherit inputs self sys-modules packages;
 	 pkgsAug2025 = inputs.nixpkgs-august-2025.legacyPackages."x86_64-linux";
 	 NixOSUtils = inputs.nixos-utils.nixosModules."x86_64-linux";
 	 isGui = true;

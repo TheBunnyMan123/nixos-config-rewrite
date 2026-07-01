@@ -8,7 +8,6 @@
 		mpv
 		gthumb
 		yazi
-		libreoffice
 		config.programs.firefox.package
 	];
 in {

@@ -12,7 +12,6 @@
 		aseprite
 		inkscape
 		blender
-		libreoffice
 		ffmpeg
 		krita
 

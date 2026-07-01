@@ -27,6 +27,7 @@
       "${sys-modules}/services/openssh"
 
       "${sys-modules}/other/nix"
+      "${sys-modules}/workarounds"
    ];
 }
 

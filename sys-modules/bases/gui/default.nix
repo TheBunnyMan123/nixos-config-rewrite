@@ -7,7 +7,6 @@
 	imports = [
 		"${sys-modules}/fonts"
 		"${sys-modules}/other/catppuccin"
-		"${sys-modules}/programs/tilp"
 		"${sys-modules}/programs/hyprland"
 		"${sys-modules}/programs/creativity-suite"
 		"${sys-modules}/programs/idea"

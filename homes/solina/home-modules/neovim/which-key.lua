@@ -19,17 +19,10 @@ wk.add { "<leader>sv", ":vsplit<CR>", desc = "Split Vertically" }
 
 
 -- Diagnostics
-wk.add { "<leader>nd", function() vim.diagnostic.goto_next{} end,
+wk.add { "<leader>nd", function() vim.diagnostic.jump{} end,
 	desc = "Next Diagnostic Message" }
-wk.add { "<leader>nw", function() vim.diagnostic.goto_next{severity=vim.diagnostic.severity.WARN} end,
+wk.add { "<leader>nw", function() vim.diagnostic.jump{severity=vim.diagnostic.severity.WARN} end,
 	desc = "Next Diagnostic Warning" }
-wk.add { "<leader>ne", function() vim.diagnostic.goto_next{severity=vim.diagnostic.severity.ERROR} end,
+wk.add { "<leader>ne", function() vim.diagnostic.jump{severity=vim.diagnostic.severity.ERROR} end,
 	desc = "Next Diagnostic Error" }
-
-wk.add { "<leader>pd", function() vim.diagnostic.goto_prev{} end,
-	desc = "Previous Diagnostic Message" }
-wk.add { "<leader>pw", function() vim.diagnostic.goto_prev{severity=vim.diagnostic.severity.WARN} end,
-	desc = "Previous Diagnostic Warning" }
-wk.add { "<leader>pe", function() vim.diagnostic.goto_prev{severity=vim.diagnostic.severity.ERROR} end,
-	desc = "Previous Diagnostic Error" }
 

@@ -6,6 +6,7 @@
 }: let
 	packages = with pkgs; [
 		mpv
+		libreoffice
 		gthumb
 		yazi
 		config.programs.firefox.package

@@ -1,14 +1,14 @@
 {
 	pkgs,
 	pkgsAug2025,
-	sys-modules,
+	homeModules,
 	...
 }: {
 	imports = [
-		"${sys-modules}/programs/obs"
+		homeModules.altInstances
 	];
 
-	environment.systemPackages = with pkgs; [
+	home.packages = with pkgs; [
 		aseprite
 		inkscape
 		blender
@@ -21,5 +21,8 @@
 		pkgsAug2025.blockbench
 	];
 
+	homeModules.altInstances."New" = with pkgs; [
+		blockbench
+	];
 }
 

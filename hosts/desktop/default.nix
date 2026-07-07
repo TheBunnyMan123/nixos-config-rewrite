@@ -14,6 +14,7 @@
 	 isGui = true;
 	 isGaming = true;
 	 nixModules = self.nixosModules;
+	 homeModules = self.homeModules;
          
          #pkgsPatched = import inputs.nixpkgs {
          #   config.allowUnfree = true;

@@ -4,6 +4,7 @@
    ...
 }: {
    imports = [
+      "${sys-modules}/virtualization"
       "${sys-modules}/programs/prismlauncher"
       "${sys-modules}/programs/r2modman"
       "${sys-modules}/programs/lutris"

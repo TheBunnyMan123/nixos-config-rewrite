@@ -8,7 +8,7 @@
 		"${sys-modules}/fonts"
 		"${sys-modules}/other/catppuccin"
 		"${sys-modules}/programs/hyprland"
-		"${sys-modules}/programs/creativity-suite"
+		"${sys-modules}/programs/obs"
 		"${sys-modules}/programs/idea"
 		"${sys-modules}/system/audio"
 		"${sys-modules}/system/audio/pipewire/filtered-mic"

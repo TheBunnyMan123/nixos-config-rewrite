@@ -43,9 +43,10 @@
 				if [ -d "$out/bin" ]; then
 					for wrappedBin in "$out/bin/"*; do
 						wrapperBase="$(basename "$wrappedBin")"
-						rawBinName="$${wrapperBase#${prefix}-}"
+						rawBinName="''${wrapperBase#${prefix}-}"
+						newExecPath="$out/bin/''${wrapperBase}"
 						
-						sed -i "s|Exec=|Exec=${prefix}-|g" "$newDesktop"
+						sed -i -E "s|Exec=(.*?/)?''${rawBinName}|Exec=$newExecPath|g" "$newDesktop"
 					done
 				fi
 			done

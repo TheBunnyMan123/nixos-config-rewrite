@@ -1,11 +1,25 @@
 {
 	pkgs,
 	fetchzip,
+	fetchFromGitHub,
 	autoPatchelfHook,
-	stoat-desktop,
+	copyDesktopItems,
+	makeDesktopItem,
+	makeWrapper,
 	stdenv,
+	asar,
 	...
-}: stdenv.mkDerivation rec {
+}: let
+	desktopItem = makeDesktopItem {
+		name = "aviaclient-desktop";
+		exec = "aviaclient-desktop";
+		icon = "aviaclient-desktop";
+		comment = "AviaClient Desktop Application";
+		desktopName = "AviaClient";
+		genericName = "AviaClient";
+		categories = [ "Network" "InstantMessaging" "Chat" ];
+	};
+in stdenv.mkDerivation rec {
 	pname = "avia-client";
 	version = "1.7.1";
 
@@ -13,11 +27,20 @@
 		url = "https://github.com/AvaLilac/for-desktop/releases/download/${version}/AviaClient-linux-x64.zip";
 		hash = "sha256-hiq1ghvrVar4ZCDRV1yzasY0ryIx6T+Uz7D4eafHnog=";
 	};
+	src2 = fetchFromGitHub {
+		owner = "AvaLilac";
+		repo = "for-desktop";
+		rev = version;
+		hash = "sha256-ykR+uMcwjT+PTKGIytXjlA8xlm2V3akpjsqilk7gflk=";
+	};
 
 	dontBuilt = true;
 
 	nativeBuildInputs = [
 		autoPatchelfHook
+		copyDesktopItems
+		makeWrapper
+		asar
 	];
 
 	buildInputs = with pkgs; [
@@ -42,21 +65,27 @@
 		udev
 		libgcc
 		alsa-lib
+		libglvnd
 	];
+
+	runtimeDependencies = with pkgs; [
+		libglvnd
+	];
+
+	desktopItems = [ desktopItem ];
 
 	installPhase = ''
 		runHook preInstall
 
 		mkdir -p "$out/opt" "$out/bin"
-		cp -rL ${stoat-desktop}/share $out/share
-		ln -s $out/opt/${pname}/aviaclient-desktop $out/bin/aviaclient-desktop
-
 		cp -r $src "$out/opt/${pname}"
+		chmod -R +w "$out/opt/${pname}"
+		makeWrapper "$out/opt/${pname}/aviaclient-desktop" "$out/bin/aviaclient-desktop" \
+			--prefix LD_LIBRARY_PATH : "${pkgs.lib.makeLibraryPath runtimeDependencies}" \
+			--add-flags "--disable-features=WebRtcAllowInputVolumeAdjustment"
 
-		ls -l
-
-		chmod -R +w $out/share
-		find $out/share/applications -name "*.desktop" -exec sed -i "s|Exec=stoat-desktop|Exec=$out/bin/aviaclient-desktop|g" {} \;
+		mkdir -p "$out/share/icons/hicolor/scalable/apps/"
+		cp "$src2/avia_assets/icon.png" "$out/share/icons/hicolor/scalable/apps/aviaclient-desktop.png"
 
 		runHook postInstall
 	'';

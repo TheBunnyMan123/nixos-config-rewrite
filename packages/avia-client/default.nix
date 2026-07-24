@@ -21,17 +21,17 @@
 	};
 in stdenv.mkDerivation rec {
 	pname = "avia-client";
-	version = "1.7.1";
+	version = "1.8.1";
 
 	src = fetchzip {
 		url = "https://github.com/AvaLilac/for-desktop/releases/download/${version}/AviaClient-linux-x64.zip";
-		hash = "sha256-hiq1ghvrVar4ZCDRV1yzasY0ryIx6T+Uz7D4eafHnog=";
+		hash = "sha256-sehr4NVVqMb14TH/aa/wKeCIgY3o/rC5F2XqDyH6o9w=";
 	};
 	src2 = fetchFromGitHub {
 		owner = "AvaLilac";
 		repo = "for-desktop";
 		rev = version;
-		hash = "sha256-ykR+uMcwjT+PTKGIytXjlA8xlm2V3akpjsqilk7gflk=";
+		hash = "sha256-NV0bV4iDSRnDjSJ347z5H8FUUCN1R+1ht97mR28tJdk=";
 	};
 
 	dontBuilt = true;

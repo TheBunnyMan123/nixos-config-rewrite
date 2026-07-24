@@ -5,7 +5,7 @@
 	...
 }: let
 	packages = with pkgs; [
-		mpv
+		smplayer
 		libreoffice
 		gthumb
 		yazi

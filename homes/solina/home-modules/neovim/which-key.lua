@@ -19,10 +19,13 @@ wk.add { "<leader>sv", ":vsplit<CR>", desc = "Split Vertically" }
 
 
 -- Diagnostics
-wk.add { "<leader>nd", function() vim.diagnostic.jump{} end,
+local function open_float()
+	vim.diagnostic.open_float{}
+end
+wk.add { "<leader>nd", function() vim.diagnostic.jump{count=1, on_jump = open_float} end,
 	desc = "Next Diagnostic Message" }
-wk.add { "<leader>nw", function() vim.diagnostic.jump{severity=vim.diagnostic.severity.WARN} end,
+wk.add { "<leader>nw", function() vim.diagnostic.jump{severity=vim.diagnostic.severity.WARN, count=1, on_jump = open_float} end,
 	desc = "Next Diagnostic Warning" }
-wk.add { "<leader>ne", function() vim.diagnostic.jump{severity=vim.diagnostic.severity.ERROR} end,
+wk.add { "<leader>ne", function() vim.diagnostic.jump{severity=vim.diagnostic.severity.ERROR, count=1, on_jump = open_float} end,
 	desc = "Next Diagnostic Error" }
 

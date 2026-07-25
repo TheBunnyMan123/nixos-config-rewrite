@@ -15,6 +15,7 @@
 		"${userParams.solina.home-modules}/zsh"
 		"${userParams.solina.home-modules}/git"
 	] ++ (if isGui || isGaming then [
+		"${userParams.solina.home-modules}/gui/fonts"
 		"${userParams.solina.home-modules}/gui/mimeapps"
 		"${userParams.solina.home-modules}/gui/niri"
 		"${userParams.solina.home-modules}/gui/chromium"

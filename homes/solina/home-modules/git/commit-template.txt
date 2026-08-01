@@ -1,0 +1,24 @@
+# ── Summary ──
+# short, 50 characters max
+# if the commit is a breaking change, include a '!' just before the ':'
+# example: 'feat(auth): add password reset flow'
+# types: feat, fix, docs, style, refactor, perf, test, chore
+<type>([scope]): <description>
+
+# ── Description ──
+# why is this change necessary?
+# wrap lines at 72 characters
+[body]
+
+# ── Footer ──
+# [field]: [description]
+# example:
+#   BREAKING CHANGE: rename function 'foo' to 'bar'
+#
+# Fields:
+# * 'BREAKING CHANGE: <description>'
+# * 'Fixes: #[issue]' - References the issue to close on merge
+# * 'Closes: #[issue]' - Identical to 'Fixes', but for non-issue tasks
+# * 'Co-authored-by: Name <email>' - Gives credit to additional commit authors
+[footer]
+

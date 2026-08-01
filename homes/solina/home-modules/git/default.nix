@@ -1,4 +1,5 @@
 {
+	config,
 	pkgs,
 	...
 }: {
@@ -11,6 +12,18 @@
 		settings = {
 			pull.rebase = true;
 			safe.directory = "*";
+
+			core = {
+				hooksPath = "${config.xdg.configHome}/git/hooks";
+			};
+
+			commit = {
+				template = "${./commit-template.txt}";
+			};
+
+			init = {
+				defaultBranch = "main";
+			};
 			
 			user = {
 				name = "TheBunnyMan123";
@@ -27,6 +40,14 @@
 	programs.gh = {
 		enable = true;
 		gitCredentialHelper.enable = true;
+	};
+
+	xdg = {
+		enable = true;
+		configFile."git/hooks/commit-msg" = {
+			source = ./hooks/commit-msg;
+			executable = true;
+		};
 	};
 }
 

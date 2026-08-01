@@ -35,3 +35,14 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
+
+-- Git
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "gitcommit",
+	callback = function()
+		vim.opt_local.colorcolumn = "50,72"
+		vim.opt_local.textwidth = 72
+	end,
+})
+
+

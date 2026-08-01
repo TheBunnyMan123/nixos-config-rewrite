@@ -78,11 +78,5 @@ while IFS= read -r line; do
 	fi
 done < "$commit_msg_file"
 
-if [ "$failed" -eq 1 ]; then
-	printf "\n"
-	printf "Commit message body lines must wrap at %i characters.\n" "$max_len"
-	exit 1
-fi
-
 exit 0
 

@@ -9,6 +9,7 @@
 		"${sys-modules}/programs/hyprland"
 		"${sys-modules}/programs/obs"
 		"${sys-modules}/programs/idea"
+		"${sys-modules}/udev/keyboard-not-controller"
 		"${sys-modules}/system/audio"
 		"${sys-modules}/system/audio/pipewire/filtered-mic"
 		"${sys-modules}/system/graphics"

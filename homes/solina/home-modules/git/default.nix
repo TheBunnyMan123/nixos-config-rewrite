@@ -29,11 +29,21 @@
 				name = "TheBunnyMan123";
 				email = "bunny@tkbunny.net";
 			};
+
 			alias = {
 				lg-specific = "log --graph --abbrev-commit --decorate --pretty=\"format:%s <%C(yellow)%h%C(reset)>%n%C(blue)%ci %C(green)(%cr)%n%C()%an <%C(yellow)%ae%C(reset)>%n\"";
 				lg = "lg-specific --all";
 				graph = "lg";
 			};
+
+			submodules = {
+				recurse = true;
+				fetchJobs = 0;
+			};
+			diff.submodule = "log";
+			status.submoduleSummary = true;
+			push.recurseSubmodules = true;
+			fetch.recurseSubmodules = "on-demand";
 		};
 	};
 

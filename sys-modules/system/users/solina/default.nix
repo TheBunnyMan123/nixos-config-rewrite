@@ -28,6 +28,8 @@
 			"libvirtd"
 			"docker"
 			"adbusers"
+			"input"
+			"uinput"
 		];
 	};
 

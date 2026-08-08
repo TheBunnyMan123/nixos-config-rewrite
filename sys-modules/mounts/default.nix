@@ -36,7 +36,7 @@
 		};
 
 		"/home/solina/Sync/figura/data/avatars/aeliana" = rec {
-			device = "/home/solina/Sync/figura/avatars/aeliana";
+			device = "/home/solina/Sync/figura/avatars/self/aeliana";
 			options = [ "bind" "ro" ];
 			depends = [ device "/home/solina/Sync/figura/data/avatars" ];
 			fsType = "auto";

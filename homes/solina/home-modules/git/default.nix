@@ -42,7 +42,6 @@
 			};
 			diff.submodule = "log";
 			status.submoduleSummary = true;
-			push.recurseSubmodules = true;
 			fetch.recurseSubmodules = "on-demand";
 		};
 	};

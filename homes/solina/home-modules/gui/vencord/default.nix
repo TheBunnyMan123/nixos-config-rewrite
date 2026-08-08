@@ -150,6 +150,7 @@
 					PlainFolderIcon.enabled = true;
 					FullUserInChatbox.enabled = true;
 					IrcColors.enabled = true;
+					MessageClickActions = true;
 				};
 			};
 		};

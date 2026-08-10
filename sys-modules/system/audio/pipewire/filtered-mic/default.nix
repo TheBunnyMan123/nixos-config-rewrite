@@ -6,35 +6,10 @@
 	services.pipewire.extraConfig.pipewire."99-filtered-mic" = {
 		"context.modules" = [
 			{
-				name = "libpipewire-module-loopback";
-				args = {
-					"node.description" = "Filtered Mic Input";
-					"media.name" = "Filtered Mic Input";
-					"capture.props" = {
-						"node.name" = "filteredmic.capture.filtered_mic_input_source";
-						"node.passive" = true;
-						"audio.position" = [ "MONO" ];
-					};
-					"playback.props" = {
-						"node.name" = "filteredmic.filtered_mic_input_source";
-						"media.class" = "Audio/Source";
-						"audio.position" = [ "MONO" ];
-						"priority.session" = 0;
-
-						"channelmix.mix-lfe" = true;
-						"channelmix.properties" = {
-							"channelmix.mapping" = [
-								{ "from" = [ "MONO" ]; "to" = [ "FL" "FR" ]; }
-							];
-						};
-					};
-				};
-			}
-			{
 				name = "libpipewire-module-filter-chain";
 				args = {
-					"node.description" = "Filtered Mic - Noise Reduction";
-					"media.name" = "Filtered Mic - Noise Reduction";
+					"node.description" = "Filtered Mic";
+					"media.name" = "Filtered Mic";
 					"filter.graph" = {
 						nodes = [
 							{
@@ -48,72 +23,53 @@
 									"Retroactive VAD Grace (ms)" = 0;
 								};
 							}
-						];
-					};
-					"capture.props" = {
-						"node.name" = "filteredmic.capture.rnnoise_source";
-						"node.passive" = true;
-						"audio.rate" = 48000;
-						"audio.position" = [ "MONO" ];
-						"target.object" = "filteredmic.filtered_mic_input_source";
-					};
-					"playback.props" = {
-						"node.name" = "filteredmic.rnnoise_source";
-						"priority.session" = 0;
-						"media.class" = "Audio/Source";
-						"audio.rate" = 48000;
-						"audio.position" = [ "MONO" ];
-					};
-				};
-			}
-			{
-				name = "libpipewire-module-filter-chain";
-				args = {
-					"node.description" = "Filtered Mic - Auto Gain Control";
-					"media.name" = "Filtered Mic - Auto Gain Control";
-					"filter.graph" = {
-						nodes = [
 							{
 								type = "ladspa";
-								name = "";
+								name = "lsp_gate";
+								plugin = "lsp-plugins-ladspa";
+								label = "http://lsp-plug.in/plugins/ladspa/gate_mono";
+								control = {
+									"Curve threshold (G)" = 0.075;
+									"Hysteresis threshold (G)" = 0.005;
+									"Attack (ms)" = 5.0;
+									"Hold time (ms)" = 100.0;
+									"Release (ms)" = 200.0;
+									"Reduction (G)" = 0.001;
+								};
+							}
+							{
+								type = "ladspa";
+								name = "agc";
 								plugin = "lsp-plugins-ladspa";
 								label = "http://lsp-plug.in/plugins/ladspa/autogain_mono";
 								control = {
 								};
 							}
 						];
+
+						links = [
+							{ output = "rnnoise:Output"; input = "lsp_gate:Input"; }
+							{ output = "lsp_gate:Output"; input = "agc:Input"; }
+						];
+
+						inputs  = [ "rnnoise:Input" ];
+						outputs = [ "agc:Output" ];
 					};
+
 					"capture.props" = {
-						"node.name" = "filteredmic.capture.agc_source";
-						"node.passive" = true;
+						"node.name"     = "filteredmic.stack_input";
+						"node.passive"  = false;
+						"audio.rate"    = 48000;
 						"audio.position" = [ "MONO" ];
-						"target.object" = "filteredmic.rnnoise_source";
 					};
+
 					"playback.props" = {
-						"node.name" = "filteredmic.agc_source";
-						"priority.session" = 0;
-						"media.class" = "Audio/Source";
-						"audio.position" = [ "MONO" ];
-					};
-				};
-			}
-			{
-				name = "libpipewire-module-loopback";
-				args = {
-					"node.description" = "Filtered Mic";
-					"media.name" = "Filtered Mic";
-					"capture.props" = {
-						"node.name" = "filteredmic.capture.filtered_mic_source";
-						"node.passive" = true;
-						"audio.position" = [ "MONO" ];
-						"target.object" = "filteredmic.agc_source";
-					};
-					"playback.props" = {
-						"node.name" = "filteredmic.filtered_mic_source";
-						"node.volume" = 2.0;
-						"media.class" = "Audio/Source";
+						"node.name"        = "filteredmic.stack_output";
+						"node.description" = "Filtered Mic";
+						"media.class"      = "Audio/Source";
 						"priority.session" = 2000;
-						"audio.position" = [ "MONO" ];
+						"audio.rate"       = 48000;
+						"audio.position"   = [ "MONO" ];
 					};
 				};
 			}

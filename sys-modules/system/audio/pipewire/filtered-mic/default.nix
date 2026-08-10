@@ -37,23 +37,14 @@
 									"Reduction (G)" = 0.001;
 								};
 							}
-							{
-								type = "ladspa";
-								name = "agc";
-								plugin = "lsp-plugins-ladspa";
-								label = "http://lsp-plug.in/plugins/ladspa/autogain_mono";
-								control = {
-								};
-							}
 						];
 
 						links = [
 							{ output = "rnnoise:Output"; input = "lsp_gate:Input"; }
-							{ output = "lsp_gate:Output"; input = "agc:Input"; }
 						];
 
 						inputs  = [ "rnnoise:Input" ];
-						outputs = [ "agc:Output" ];
+						outputs = [ "lsp_gate:Output" ];
 					};
 
 					"capture.props" = {

@@ -19,6 +19,8 @@
 
 		"${sys-modules}/bases/tty"
 	];
+   
+   services.flatpak.enable = true;
 
 	home-manager.backupFileExtension = "bak";
 	home-manager.users.solina.xdg.configFile."niri/display.kdl".source = lib.mkDefault ./display.kdl;

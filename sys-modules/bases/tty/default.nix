@@ -3,7 +3,6 @@
    ...
 }: {
    home-manager.useGlobalPkgs = true;
-   services.flatpak.enable = true;
 
    imports = [
       "${sys-modules}/programs/zsh"

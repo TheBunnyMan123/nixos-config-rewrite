@@ -73,6 +73,7 @@ customText = """
     },
     {
         "text": "BeanGalSolina",
+        "underlined": true,
         "color": "light_purple",
         "clickEvent": {
             "action": "open_url",

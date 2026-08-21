@@ -31,6 +31,8 @@
       desktop = lib.nixosSystem {
          inherit specialArgs;
          modules = [
+            "${sys-modules}/services/sculptor"
+
             "${sys-modules}/system/boot/grub"
             "${sys-modules}/system/boot/efi"
 

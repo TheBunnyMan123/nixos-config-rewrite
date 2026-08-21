@@ -1,0 +1,17 @@
+  2026-08-20T20:31:47.296-05:00  INFO sculptor: The Sculptor v0.4.2 (shiroyashik/sculptor)
+    at src/main.rs:93
+
+  2026-08-20T20:31:47.506-05:00  INFO sculptor: Sculptor are up to date!
+    at src/main.rs:100
+
+  2026-08-20T20:31:47.506-05:00  INFO sculptor: Created avatars directory
+    at src/main.rs:112
+
+  2026-08-20T20:31:47.506-05:00 ERROR sculptor::state::config: Configuration file doesn't exist or Sculptor can't access it!
+			>>>>> https://github.com/shiroyashik/sculptor/blob/master/Config.example.toml
+			Place this file next to the executable file!
+    at src/state/config.rs:85
+
+  2026-08-20T20:31:47.506-05:00 ERROR tracing_panic: A panic occurred, panic.payload: "called `Result::unwrap()` on an `Err` value: Os { code: 2, kind: NotFound, message: \"No such file or directory\" }", panic.location: "src/state/config.rs:85:285", panic.backtrace: disabled backtrace, panic.note: "run with RUST_BACKTRACE=1 environment variable to display a backtrace"
+    at /build/sculptor-0.4.2-vendor/source-registry-0/tracing-panic-0.1.2/src/lib.rs:82
+

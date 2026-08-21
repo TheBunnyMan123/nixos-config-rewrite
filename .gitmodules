@@ -1,0 +1,3 @@
+[submodule "external/good-girl"]
+	path = external/good-girl
+	url = https://github.com/quiltedhills/good-girl.git

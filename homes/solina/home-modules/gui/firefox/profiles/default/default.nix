@@ -233,6 +233,10 @@ in {
 					})
 				];
 			};
+
+			settings = {
+				"browser.aboutConfig.showWarning" = false;
+			};
 		};
 	};
 }

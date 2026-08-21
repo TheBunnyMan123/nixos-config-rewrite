@@ -43,7 +43,7 @@
 								plugin = "lsp-plugins-ladspa";
 								label = "http://lsp-plug.in/plugins/ladspa/filter_mono";
 								control = {
-									"Output gain (G)" = 2.0;
+									"Gain (G)" = 14.0;
 								};
 							}
 						];

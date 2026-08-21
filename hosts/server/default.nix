@@ -37,6 +37,8 @@
             "${sys-modules}/system/users/solina"
 
             "${sys-modules}/bases/tty"
+            
+	    "${sys-modules}/services/sculptor"
 
             ./hardware-configuration.nix
             ./config.nix

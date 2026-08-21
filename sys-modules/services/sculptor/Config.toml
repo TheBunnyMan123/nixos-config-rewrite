@@ -77,7 +77,7 @@ customText = """
         "clickEvent": {
             "action": "open_url",
             "value": "https://beangal.dev"
-        },
+        }
     }
 ]
 """
@@ -90,8 +90,10 @@ maxAvatars = 10 # It doesn't look like Figura has any actions implemented with t
 
 [advancedUsers.66004548-4de5-49de-bade-9c3933d8eb97]
 username = "Shiroyashik"
+banned = true
 special = [0,0,0,1,0,0] # 6
 pride = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] # 25
+
 
 ## With advancedUsers you can set additional parameters
 # [advancedUsers.your-uuid-here]

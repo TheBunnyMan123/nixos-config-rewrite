@@ -26,6 +26,16 @@ ${pkgs.coreutils}/bin/cp -n ${./Config.toml} /var/lib/sculptor/Config.toml
 
 	};
 
+	services.cloudflared = {
+		enable = true;
+
+		tunnels = {
+			"d4ae47ee-15b1-4f0c-a2dd-529b8e3e8247" = {
+				credentialsFile = "/etc/cloudflared-creds/creds";
+			};
+		};
+	};
+
 	networking.firewall.allowedTCPPorts = [ 6665 ];
 }
 

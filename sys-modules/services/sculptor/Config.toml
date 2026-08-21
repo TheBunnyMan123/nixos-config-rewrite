@@ -66,10 +66,10 @@ customText = """
             "action": "open_url",
             "value": "https://github.com/shiroyashik/sculptor"
         },
-        "text": " me on GitHub!\\n\\n"
+        "text": " me on GitHub!"
     },
     {
-        "text": "\\n\\nHosted by"
+        "text": "\\n\\nHosted by "
     },
     {
         "text": "BeanGalSolina",

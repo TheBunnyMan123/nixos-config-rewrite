@@ -16,6 +16,7 @@ in {
 		"${userParams.solina.home-modules}/gui/gtk"
 		"${userParams.solina.home-modules}/gui/qt"
 		"${userParams.solina.home-modules}/gui/cursors"
+		"${userParams.solina.home-modules}/gui/replaybuf"
 	];
 	
 	xdg.portal = {

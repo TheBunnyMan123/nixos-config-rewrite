@@ -28,6 +28,7 @@ binds {
 	Mod+S		repeat=false { screenshot; }
 	Mod+Shift+S	repeat=false { screenshot-window; }
 	Mod+Ctrl+S	repeat=false { screenshot-screen; }
+	Mod+Alt+S	repeat=false { spawn-sh "~/.bin/replaybuf-dump.sh"; }
 	Mod+C		repeat=false hotkey-overlay-title="Close Window" { close-window; }
 	Mod+Shift+C	repeat=false hotkey-overlay-title="Kill Window" { spawn-sh "kill -9 \"$(niri msg -j windows | jq '.[] | select(.is_focused == true).pid')\""; }
 	Mod+Ctrl+C	repeat=false { quit; }

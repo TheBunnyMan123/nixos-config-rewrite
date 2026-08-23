@@ -8,7 +8,7 @@
 	...
 }: let
 	pname = "viaproxy";
-	version = "3.4.11";
+	version = "3.4.12";
 	jre = jdk21;
 in stdenv.mkDerivation {
 	inherit pname version;
@@ -16,7 +16,7 @@ in stdenv.mkDerivation {
 	dontUnpack = true;
 	src = fetchurl {
 		url = "https://github.com/ViaVersion/ViaProxy/releases/download/v${version}/ViaProxy-${version}.jar";
-		hash = "sha256-D6sLyItgB+HUohmh2mTGiwh4t6wV4MiT1LJhvRCyeJw=";
+		hash = "sha256-Ms6a2HGusDKGgjwp2iYuvXWZKGTnhX2yg/EDUlx/wMs=";
 	};
 
 	nativeBuildInputs = [
